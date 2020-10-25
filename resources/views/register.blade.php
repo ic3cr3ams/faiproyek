@@ -8,7 +8,7 @@
         height: 650px;
         margin: 6rem auto 8.1rem auto;
         width: 529px;
-        
+
     }
     #card-content {
       padding: 12px 44px;
@@ -92,8 +92,6 @@
         </div>
       </div>
     </div>
-
-
     <section class="ftco-section ftco-degree-bg">
         <div id="card">
             <div id="card-content">
@@ -101,7 +99,8 @@
                   <h2>REGISTER</h2>
                   <div class="underline-title"></div>
                 </div>
-                <form method="post" class="form"> 
+                <form method="post" class="form" action="regis">
+                    @csrf
                 <label for="username" style="padding-top:13px">&nbsp;Username</label>
                 <input
                 id="username"
@@ -134,6 +133,22 @@
                 class="form-content"
                 type="password"
                 name="confirmpassword"
+                required />
+                <div class="form-border"></div>
+                <label for="confirm-password" style="padding-top:13px">&nbsp;Alamat</label>
+                <input
+                id="confirm-password"
+                class="form-content"
+                type="text"
+                name="alamat"
+                required />
+                <div class="form-border"></div>
+                <label for="confirm-password" style="padding-top:13px">&nbsp;Phone</label>
+                <input
+                id="confirm-password"
+                class="form-content"
+                type="number"
+                name="phone"
                 required />
                 <div class="form-border"></div>
                 <input id="submit-btn" type="submit" name="submit" value="Register" /><a href="login" id="signup">Already have account?</a>

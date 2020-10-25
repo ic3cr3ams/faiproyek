@@ -43,10 +43,13 @@ Route::get('/blog-single4', function () {
 //Login dan Register
 Route::get('/login', function () {
     return view('login');
-});
+})->name("login");
+Route::post('/log', 'mctrl@log');
 Route::get('/register', function () {
     return view('register');
-});
+})->name('register');
+Route::post('/regis','mctrl@register');
+
 Route::get('/forgotpass', function () {
     return view('forgotpass');
 });

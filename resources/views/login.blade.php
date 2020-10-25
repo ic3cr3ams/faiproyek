@@ -8,7 +8,7 @@
         height: 450px;
         margin: 6rem auto 8.1rem auto;
         width: 529px;
-        
+
     }
     #card-content {
       padding: 12px 44px;
@@ -101,7 +101,8 @@
                   <h2>LOGIN</h2>
                   <div class="underline-title"></div>
                 </div>
-                <form method="post" class="form"> 
+                <form method="post" class="form" action="log">
+                    @csrf
                     <label for="username" style="padding-top:13px">&nbsp;Username</label>
                 <input
                 id="username"
