@@ -5,7 +5,7 @@
         background: #fbfbfb;
         border-radius: 8px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-        height: 650px;
+        height: 810px;
         margin: 6rem auto 8.1rem auto;
         width: 529px;
 
