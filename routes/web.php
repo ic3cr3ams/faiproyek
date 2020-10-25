@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-//BLOG 
+//BLOG
 Route::get('/blog', function () {
     return view('blog');
 });
@@ -187,4 +188,25 @@ Route::get('admin/todo_list', function () {
 });
 Route::get('admin/xchart', function () {
     return view('admin/xchart');
+});
+
+
+
+Route::get('admins/charts', function () {
+    return view('admins/charts');
+});
+Route::get('admins/elements', function () {
+    return view('admins/elements');
+});
+Route::get('admins/index', function () {
+    return view('admins/index');
+});
+Route::get('admins/login', function () {
+    return view('admins/login');
+});
+Route::get('admins/panels', function () {
+    return view('admins/panels');
+});
+Route::get('admins/widgets', function () {
+    return view('admins/widgets');
 });
