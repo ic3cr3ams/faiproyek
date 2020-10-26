@@ -53,6 +53,7 @@ Route::post('/regis','mctrl@register');
 Route::get('/forgotpass', function () {
     return view('forgotpass');
 });
+Route::get('logout','mctrl@logout');
 
 //Detail paket
 Route::get('/paket', function () {

@@ -56,4 +56,8 @@ class mctrl extends Controller
         }
         else return redirect()->back();
     }
+    function logout(){
+        Session::forget("login");
+        return view("index");
+    }
 }
