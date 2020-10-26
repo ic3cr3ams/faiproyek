@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('logout','mctrl@logout');
 //ABOUT AND CONTACT
 Route::get('/about', function () {
     return view('about');
