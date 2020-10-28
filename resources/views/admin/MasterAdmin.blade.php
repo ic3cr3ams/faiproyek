@@ -10,8 +10,8 @@
   <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('asset/admin/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('asset/admin/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="{{ asset('asset/admin/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -132,7 +132,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('asset/admin/img/ui-zac.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
                   <span class="time">Just now</span>
@@ -144,7 +144,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('asset/admin/img/ui-divya.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
                   <span class="time">40 mins.</span>
@@ -156,7 +156,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('asset/admin/img/ui-danro.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dan Rogers</span>
                   <span class="time">2 hrs.</span>
@@ -168,7 +168,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('asset/admin/img/ui-sherman.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dj Sherman</span>
                   <span class="time">4 hrs.</span>
@@ -247,7 +247,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="{{asset('asset/admin/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
             <a href="index.html">
@@ -361,48 +361,47 @@
         <!-- sidebar menu end-->
       </div>
     </aside>
-    @yield('body')
-    <footer class="site-footer">
-        <div class="text-center">
-          <p>
-            &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-          </p>
-          <div class="credits">
-            <!--
-              You are NOT allowed to delete the credit link to TemplateMag with free version.
-              You can delete the credit link only if you bought the pro version.
-              Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-              Licensing information: https://templatemag.com/license/
-            -->
-            Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-          </div>
-          <a href="advanced_form_components.html#" class="go-top">
-            <i class="fa fa-angle-up"></i>
-            </a>
-        </div>
-      </footer>
-      <!--footer end-->
-    </section>
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('asset/admin/lib/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('asset/admin/lib/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script class="include" type="text/javascript" src="{{ asset('asset/admin/lib/jquery.dcjqaccordion.2.7.js') }}"></script>
-    <script src="{{ asset('asset/admin/lib/jquery.scrollTo.min.js') }}"></script>
-    <script src="{{ asset('asset/admin/lib/jquery.nicescroll.js') }}" type="text/javascript"></script>
-    <!--common script for all pages-->
-    <script src="{{ asset('asset/admin/lib/common-scripts.js') }}"></script>
-    <!--script for this page-->
-    <script src="{{ asset('asset/admin/lib/jquery-ui-1.9.2.custom.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-fileupload/bootstrap-fileupload.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-daterangepicker/date.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-daterangepicker/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
-    <script src="{{ asset('asset/admin/lib/advanced-form-components.js') }}"></script>
+@yield('body')
+<footer class="site-footer">
+    <div class="text-center">
+      <p>
+        &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+      </p>
+      <div class="credits">
+        <!--
+          You are NOT allowed to delete the credit link to TemplateMag with free version.
+          You can delete the credit link only if you bought the pro version.
+          Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+          Licensing information: https://templatemag.com/license/
+        -->
+        Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
+      </div>
+      <a href="advanced_form_components.html#" class="go-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+  </footer>
+  <!--footer end-->
+</section>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="{{ asset('asset/admin/lib/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('asset/admin/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+<script class="include" type="text/javascript" src="{{ asset('asset/admin/lib/jquery.dcjqaccordion.2.7.js') }}"></script>
+<script src="{{ asset('asset/admin/lib/jquery.scrollTo.min.js') }}"></script>
+<script src="{{ asset('asset/admin/lib/jquery.nicescroll.js') }}" type="text/javascript"></script>
+<!--common script for all pages-->
+<script src="{{ asset('asset/admin/lib/common-scripts.js') }}"></script>
+<!--script for this page-->
+<script src="{{ asset('asset/admin/lib/jquery-ui-1.9.2.custom.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-fileupload/bootstrap-fileupload.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-daterangepicker/date.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-daterangepicker/moment.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
+<script src="{{ asset('asset/admin/lib/advanced-form-components.js') }}"></script>
 
-  </body>
+</body>
 
-  </html>
-
+</html>
