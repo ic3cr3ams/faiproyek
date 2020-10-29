@@ -2,13 +2,13 @@
 @section('body')
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Form Components</h3>
+        <h3><i class="fa fa-angle-right"></i>Tambah Paket</h3>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Form Elements</h4>
-              <form class="form-horizontal style-form" method="get">
+              <form class="form-horizontal style-form" method="POST">
+                @csrf
                 <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Default</label>
                   <div class="col-sm-10">
@@ -23,33 +23,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Rounder</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control round-form">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Input focus</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-                  </div>
-                </div>
-                <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">Disabled</label>
                   <div class="col-sm-10">
                     <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Placeholder</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="placeholder">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" placeholder="">
                   </div>
                 </div>
                 <div class="form-group">
@@ -140,68 +116,10 @@
                   Option two can be something else and selecting it will deselect option one
                   </label>
               </div>
-              <hr>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-                </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-                </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-                </label>
-              <hr>
-              <select class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              <br>
-              <select multiple class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
             </div>
             <!-- /form-panel -->
           </div>
           <!-- /col-lg-12 -->
-          <!-- CUSTOM TOGGLES -->
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Custom Toggles</h4>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" checked="" data-toggle="switch" />
-                </div>
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" data-toggle="switch" />
-                </div>
-              </div>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <div class="switch switch-square" data-on-label="<i class=' fa fa-check'></i>" data-off-label="<i class='fa fa-times'></i>">
-                    <input type="checkbox" />
-                  </div>
-                </div>
-                <div class="col-sm-6 text-center">
-                  <div class="switch switch-square" data-on-label="<i class=' fa fa-check'></i>" data-off-label="<i class='fa fa-times'></i>">
-                    <input type="checkbox" checked="" />
-                  </div>
-                </div>
-              </div>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" disabled data-toggle="switch" />
-                </div>
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" checked disabled data-toggle="switch" />
-                </div>
-              </div>
             </div>
           </div>
         </div>

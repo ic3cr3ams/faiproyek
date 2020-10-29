@@ -78,21 +78,50 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('admin/advanced_form_components', function () {
-    return view('admin/advanced_form_components');
+//Admin
+Route::get('admin/paket', function () {
+    return view('admin/paket');
 });
-Route::get('admin/advanced_table', function () {
-    return view('admin/advanced_table');
+Route::get('admin/tambahPaket', function () {
+    return view('admin/tambahPaket');
 });
-Route::get('admin/basic_table', function () {
-    return view('admin/basic_table');
+Route::get('admin/editPaket', function () {
+    return view('admin/editPaket');
+});
+Route::get('admin/lihatdetail', function () {
+    return view('admin/lihatdetail');
+});
+Route::get('admin/listHotel', function () {
+    return view('admin/listHotel');
+});
+Route::get('admin/tambahHotel', function () {
+    return view('admin/tambahHotel');
+});
+Route::get('admin/editHotel', function () {
+    return view('admin/editHotel');
+});
+Route::get('admin/listPesawat', function () {
+    return view('admin/listPesawat');
+});
+Route::get('admin/tambahPesawat', function () {
+    return view('admin/tambahPesawat');
+});
+Route::get('admin/editPesawat', function () {
+    return view('admin/editPesawat');
 });
 Route::get('admin/flot_chart', function () {
     return view('admin/flot_chart');
 });
-Route::get('admin/form_component', function () {
-    return view('admin/form_component');
+Route::get('admin/listCutomer', function () {
+    return view('admin/listCutomer');
 });
+Route::get('admin/detailCustomer', function () {
+    return view('admin/detailCustomer');
+});
+Route::get('admin/laporan', function () {
+    return view('admin/laporan');
+});
+
 Route::get('admin/form_validation', function () {
     return view('admin/form_validation');
 });
@@ -104,4 +133,10 @@ Route::get('admin/invoice', function () {
 });
 Route::get('admin/profile', function () {
     return view('admin/profile');
+});
+Route::get('admin/advanced_form_components', function () {
+    return view('admin/advanced_form_components');
+});
+Route::get('admin/advanced_table', function () {
+    return view('admin/advanced_table');
 });

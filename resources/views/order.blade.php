@@ -42,6 +42,9 @@
 									  <div class="col">
 										  <input type="text" class="form-control" placeholder="Nama Belakang" name="namabelakang">
 									  </div>
+									  <div class="col">
+										<input type="text" class="form-control" placeholder="No.Paspor" name="noPaspor">
+									</div>
 								  </div>
 								  <div class="row">
 									  <div class="col">
