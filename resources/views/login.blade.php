@@ -103,12 +103,12 @@
                 </div>
                 <form method="post" class="form" action="log">
                     @csrf
-                    <label for="username" style="padding-top:13px">&nbsp;Username</label>
+                    <label for="email" style="padding-top:13px">&nbsp;Email</label>
                 <input
-                id="username"
+                id="email"
                 class="form-content"
                 type="text"
-                name="username"
+                name="email"
                 autocomplete="on"
                 required />
                 <div class="form-border"></div>

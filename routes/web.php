@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,7 +50,10 @@ Route::post('/log', 'mctrl@log');
 Route::get('/register', function () {
     return view('register');
 })->name('register');
-Route::post('/regis','mctrl@register');
+// Route::post('/regis','mctrl@register');
+Route::post('/regis','SendEmailController@index');
+Route::post('/verifcode','SendEmailController@verifcode');
+Route::get('verifemail','SendEmailController@verifview')->name('verifemail');
 
 Route::get('/forgotpass', function () {
     return view('forgotpass');

@@ -5,7 +5,7 @@
         background: #fbfbfb;
         border-radius: 8px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-        height: 810px;
+        height: fit-content;
         margin: 6rem auto 8.1rem auto;
         width: 529px;
 
@@ -96,37 +96,18 @@
         <div id="card">
             <div id="card-content">
                 <div id="card-title">
-                    <h2>REGISTER</h2>
+                    <h2>Verification</h2>
                     <div class="underline-title"></div>
                 </div>
+                <center><p>Input Verification Code For Email <strong>{{$email}}</strong></p></center>
                 @include('alert')
-                <form method="post" class="form" action="regis">
+                <form method="post" class="form" action="verifcode">
                     @csrf
-                <label for="nama" style="padding-top:13px">&nbsp;Nama Lengkap</label>
-                <input id="nama" class="form-content" type="text" name="nama" autocomplete="on" value="{{old('nama')}}" required  >
+                <label for="vercode" style="padding-top:13px">Verification Code</label>
+                <input id="vercode" class="form-content" type="text" name="vercode" autocomplete="on" value="{{old('vercode')}}" required  >
                 <div class="form-border"></div>
-
-                <label for="user_email" style="padding-top:13px">&nbsp;Email</label>
-                <input id="user_email" class="form-content" type="email" name="email" autocomplete="on" value="{{old('email')}}" required >
-                <div class="form-border"></div>
-
-                <label for="user_password" style="padding-top:22px">&nbsp;Password</label>
-                <input id="user_password" class="form-content" type="password" name="password" required />
-                <div class="form-border"></div>
-
-                <label for="confirm-password" style="padding-top:22px">&nbsp;Confirm Password</label>
-                <input id="confirm-password" class="form-content" type="password" name="confirmpassword" required />
-                <div class="form-border"></div>
-
-                <label for="confirm-password" style="padding-top:13px">&nbsp;Alamat</label>
-                <input id="confirm-password" class="form-content" type="text" name="alamat" value="{{old('alamat')}}" required  >
-                <div class="form-border"></div>
-
-                <label for="confirm-password" style="padding-top:13px">&nbsp;Phone</label>
-                <input id="confirm-password" class="form-content" type="number" name="phone"  value="{{old('phone')}}" required >
-                <div class="form-border"></div>
-                
-                <input id="submit-btn" type="submit" name="submit" value="Register" /><a href="login" id="signup">Already have account?</a>
+                                
+                <input id="submit-btn" type="submit" name="submit" value="Submit" />
                 </form>
               </div>
         </div>
