@@ -91,13 +91,13 @@ Route::get('/', function () {
 
 //Admin
 Route::get('admin/paket', function () {
-    return view('admin/paket');
+    return view('admin.paket');
 });
 Route::get('admin/tambahPaket', function () {
-    return view('admin/tambahPaket');
+    return view('admin.tambahPaket');
 });
 Route::get('admin/editPaket', function () {
-    return view('admin/editPaket');
+    return view('admin.editPaket');
 });
 Route::get('admin/lihatdetail', function () {
     return view('admin/lihatdetail');
