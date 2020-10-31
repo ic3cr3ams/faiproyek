@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class paket_tour extends Model
+class customer extends Model
 {
-    protected $table ='paket_tour';
-    protected $primaryKey = 'tour_id';
+    protected $table ='customer';
+    protected $primaryKey = 'customer_id';
     public $incrementing = false;
     protected $keyType = 'varchar';
     public $timestamps = false;

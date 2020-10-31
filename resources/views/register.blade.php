@@ -5,7 +5,7 @@
         background: #fbfbfb;
         border-radius: 8px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-        height: 810px;
+        height: fit-content;
         margin: 6rem auto 8.1rem auto;
         width: 529px;
 
@@ -99,6 +99,15 @@
                     <h2>REGISTER</h2>
                     <div class="underline-title"></div>
                 </div>
+                @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                    </ul>
+                </div>
+                @endif
                 @include('alert')
                 <form method="post" class="form" action="regis">
                     @csrf

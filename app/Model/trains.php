@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class htrans extends Model
+class trains extends Model
 {
-    protected $table ='htrans';
-    protected $primaryKey = 'htrans_id';
+    protected $table ='trains';
+    protected $primaryKey = 'trains_id';
     public $incrementing = false;
     protected $keyType = 'varchar';
     public $timestamps = false;

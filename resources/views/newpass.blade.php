@@ -98,24 +98,28 @@
         <div id="card">
             <div id="card-content">
                 <div id="card-title">
-                  <h2>FORGOT PASSWORD?</h2>
+                  <h2>RESET PASSWORD</h2>
                 </div>
+                @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                    </ul>
+                </div>
+                @endif
                 @include('alert')
-                <form method="post" class="form" action="emailresetpass"> 
+                <form method="post" class="form" action="newpassword"> 
                     @csrf
-                    <label for="email" style="padding-top:13px">&nbsp;Email</label>
-                    <input id="email" class="form-content" type="email" name="email" autocomplete="on" required>
+                    <label for="user_password" style="padding-top:22px">&nbsp;Password</label>
+                    <input id="user_password" class="form-content" type="password" name="password" required />
                     <div class="form-border"></div>
-                    {{-- <br/>
-                        <h2>RESET PASSWORD</h2> --}}
 
-                    {{-- <label for="user-password" style="padding-top:22px">&nbsp;Password</label>
-                    <input id="user-password" class="form-content" type="password" name="password" required>
+                    <label for="confirm-password" style="padding-top:22px">&nbsp;Confirm Password</label>
+                    <input id="confirm-password" class="form-content" type="password" name="confirmpassword" required />
                     <div class="form-border"></div>
-                    <label for="con-password" style="padding-top:22px">&nbsp;Confirm Password</label>
-                    <input id="con-password" class="form-content" type="password" name="conpassword" required>
-                    <div class="form-border"></div> --}}
-                    <input id="submit-btn" type="submit" name="submit" value="Send Verification Code">
+                    <input id="submit-btn" type="submit" name="submit" value="Submit">
                 </form>
               </div>
         </div>

@@ -8,7 +8,7 @@
         height: fit-content;
         margin: 6rem auto 8.1rem auto;
         width: 529px;
-        
+
     }
     #card-content {
       padding: 12px 44px;
@@ -24,7 +24,7 @@
       background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
       height: 2px;
       margin: -1.1rem auto 0 auto;
-      width: 95%;
+      width: 200px;
     }
     a {
     text-decoration: none;
@@ -64,10 +64,10 @@
     text-align: center;
     }
     #submit-btn {
-        background: -webkit-linear-gradient(right, #7bc5f7, #012496);
+        background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
         border: none;
         border-radius: 21px;
-        box-shadow: 0px 1px 8px #1230da;
+        box-shadow: 0px 1px 8px #24c64f;
         cursor: pointer;
         color: white;
         font-family: "Raleway SemiBold", sans-serif;
@@ -83,39 +83,33 @@
 </style>
     <div class="hero-wrap js-fullheight" style="background-image: url('images/login.jpg');">
         <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/">Home</a></span> <span>Login</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Login</h1>
-                </div>
-            </div>
+            <div class="container">
+                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+                    <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                        <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/">Home</a></span> <span>Login</span></p>
+                        <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Login</h1>
+                    </div>
+              </div>
         </div>
     </div>
-
-
     <section class="ftco-section ftco-degree-bg">
         <div id="card">
             <div id="card-content">
                 <div id="card-title">
-                  <h2>FORGOT PASSWORD?</h2>
+                    <h2>Verification</h2>
+                    <div class="underline-title"></div>
                 </div>
+                <center><p>Input Verification Code For Email <strong>{{$email}}</strong></p></center>
                 @include('alert')
-                <form method="post" class="form" action="emailresetpass"> 
+                <form method="post" class="form" action="/verifcode">
                     @csrf
-                    <label for="email" style="padding-top:13px">&nbsp;Email</label>
-                    <input id="email" class="form-content" type="email" name="email" autocomplete="on" required>
-                    <div class="form-border"></div>
-                    {{-- <br/>
-                        <h2>RESET PASSWORD</h2> --}}
-
-                    {{-- <label for="user-password" style="padding-top:22px">&nbsp;Password</label>
-                    <input id="user-password" class="form-content" type="password" name="password" required>
-                    <div class="form-border"></div>
-                    <label for="con-password" style="padding-top:22px">&nbsp;Confirm Password</label>
-                    <input id="con-password" class="form-content" type="password" name="conpassword" required>
-                    <div class="form-border"></div> --}}
-                    <input id="submit-btn" type="submit" name="submit" value="Send Verification Code">
+                <label for="vercode" style="padding-top:13px">Verification Code</label>
+                <input id="vercode" class="form-content" type="text" name="vercode" autocomplete="on" value="{{old('vercode')}}" required  >
+                <div class="form-border"></div>
+                                
+                <input id="submit-btn" type="submit" name="submit" value="Submit"><br>
+                <div class="row justify-content-center">Didn't receive a verification code? <a href="resendregcode">&nbsp;Resend Code</a></div>
+                
                 </form>
               </div>
         </div>

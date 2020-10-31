@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\customer;
-use App\dhotel;
-use App\dpaket;
-use App\hotel;
-use App\htrans;
-use App\paket_tour;
-use App\trains;
-use App\pegawai;
-use App\dtrans;
+use App\Model\customer;
+use App\Model\dhotel;
+use App\Model\dpaket;
+use App\Model\hotel;
+use App\Model\htrans;
+use App\Model\paket_tour;
+use App\Model\trains;
+use App\Model\pegawai;
+use App\Model\dtrans;
 use Illuminate\Support\Facades\Session;
 
 class mctrl extends Controller

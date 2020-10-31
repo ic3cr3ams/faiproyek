@@ -50,7 +50,7 @@
                 </div>
               </li>
               <li class="nav-item"><a href="about" class="nav-link">About</a></li>
-              @if (session()->has("login"))
+              @if (Session::has("login"))
               <li class="nav-item cta"><a href="logout" class="nav-link"><span>Log Out</span></a></li>
               @else
               <li class="nav-item cta"><a href="login" class="nav-link"><span>Login</span></a></li>

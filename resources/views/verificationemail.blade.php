@@ -107,7 +107,9 @@
                 <input id="vercode" class="form-content" type="text" name="vercode" autocomplete="on" value="{{old('vercode')}}" required  >
                 <div class="form-border"></div>
                                 
-                <input id="submit-btn" type="submit" name="submit" value="Submit" />
+                <input id="submit-btn" type="submit" name="submit" value="Submit"><br>
+                <div class="row justify-content-center">Didn't receive a verification code? <a href="resendregcode">&nbsp;Resend Code</a></div>
+                
                 </form>
               </div>
         </div>

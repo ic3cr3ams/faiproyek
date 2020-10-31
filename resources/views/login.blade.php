@@ -5,7 +5,7 @@
         background: #fbfbfb;
         border-radius: 8px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-        height: 450px;
+        height: fit-content;
         margin: 6rem auto 8.1rem auto;
         width: 529px;
 
@@ -84,16 +84,14 @@
     <div class="hero-wrap js-fullheight" style="background-image: url('images/login.jpg');">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/">Home</a></span> <span>Login</span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Login</h1>
+          <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+              <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                  <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/">Home</a></span> <span>Login</span></p>
+                  <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Login</h1>
+              </div>
           </div>
-        </div>
       </div>
     </div>
-
-
     <section class="ftco-section ftco-degree-bg">
         <div id="card">
             <div id="card-content">
@@ -101,27 +99,19 @@
                   <h2>LOGIN</h2>
                   <div class="underline-title"></div>
                 </div>
-                <form method="post" class="form" action="log">
+                @include('alert')
+                <form method="post" class="form" action="login">
                     @csrf
                     <label for="email" style="padding-top:13px">&nbsp;Email</label>
-                <input
-                id="email"
-                class="form-content"
-                type="text"
-                name="email"
-                autocomplete="on"
-                required />
-                <div class="form-border"></div>
-                <label for="user-password" style="padding-top:22px">&nbsp;Password</label>
-                <input
-                id="user-password"
-                class="form-content"
-                type="password"
-                name="password"
-                required />
-                <div class="form-border"></div>
-                <a href="forgotpass"><legend id="forgot-pass">Forgot password?</legend></a>
-                <input id="submit-btn" type="submit" name="submit" value="LOGIN" /><a href="register" id="signup">Don't have account yet?</a>
+                    <input id="email" class="form-content" type="email" name="email" autocomplete="on" required>
+                    <div class="form-border"></div>
+
+                    <label for="user-password" style="padding-top:22px">&nbsp;Password</label>
+                    <input id="user-password" class="form-content" type="password" name="password" required>
+                    <div class="form-border"></div>
+
+                    <a href="forgotpass"><legend id="forgot-pass">Forgot password?</legend></a>
+                    <input id="submit-btn" type="submit" name="submit" value="LOGIN" /><a href="register" id="signup">Don't have account yet?</a>
                 </form>
               </div>
         </div>

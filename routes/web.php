@@ -46,14 +46,20 @@ Route::get('/blog-single4', function () {
 Route::get('/login', function () {
     return view('login');
 })->name("login");
-Route::post('/log', 'mctrl@log');
+// Route::post('/log', 'mctrl@log');
+Route::post('/login', 'loginController@login');
 Route::get('/register', function () {
     return view('register');
 })->name('register');
 // Route::post('/regis','mctrl@register');
 Route::post('/regis','SendEmailController@index');
 Route::post('/verifcode','SendEmailController@verifcode');
-Route::get('verifemail','SendEmailController@verifview')->name('verifemail');
+Route::post('/emailresetpass','SendEmailController@sendverifresetpass');
+Route::post('/newpassword','SendEmailController@newpassword');
+Route::get('/verifemail','SendEmailController@verifview')->name('verifemail');
+Route::get('/verifemailreset','SendEmailController@verifresetview')->name('verifemailres');
+Route::get('/resendregcode','SendEmailController@resendregcode')->name('resendregcode');
+Route::view('/newpass',"newpass")->name('newpass');
 
 Route::get('/forgotpass', function () {
     return view('forgotpass');
@@ -77,10 +83,11 @@ Route::get('/cekPesan', function () {
     return view('cekPesan');
 });
 
+
 //Index
 Route::get('/', function () {
     return view('index');
-});
+})->name('homepage');
 
 //Admin
 Route::get('admin/paket', function () {
