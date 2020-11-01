@@ -1,150 +1,150 @@
 @extends('admin/MasterAdmin')
 @section('body')
     <section id="main-content">
-      <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Tambah Paket</h3>
-        <!-- BASIC FORM ELELEMNTS -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <form class="form-horizontal style-form" method="POST" action="addPaket">
-                @csrf
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Nama Paket</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-2">Tanggal Tour</label>
-                    <div class="col-md-4">
-                      <div class="input-group input-large" data-date="01/01/2014" data-date-format="mm/dd/yyyy">
-                        <input type="text" class="form-control dpd1" name="from">
-                        <span class="input-group-addon">To</span>
-                        <input type="text" class="form-control dpd2" name="to">
-                      </div>
-                      <span class="help-block">Select date range</span>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Durasi Perjalanan</label>
-                    <div class="col-sm-4">
-                      <input class="form-control" id="disabledInput" type="text" placeholder="4 Hari" disabled>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Harga</label>
-                    <div class="col-sm-4">
-                      <input type="number" class="form-control">
-                    </div>
-                  </div>
-              </form>
-            </div>
-          </div>
-          <!-- col-lg-12-->
-        </div>
-        <div class="row mt">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i>Tambah Paket</h3>
+            <!-- BASIC FORM ELELEMNTS -->
+            <div class="row mt">
             <div class="col-lg-12">
-              <div class="form-panel">
-                  
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Detail Paket</h4>
+                <div class="form-panel">
                 <form class="form-horizontal style-form" method="POST" action="addPaket">
-                  @csrf
-                  <div class="form-group">
+                    @csrf
+                    <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Nama Paket</label>
                     <div class="col-sm-4">
-                      <span>Hari Ke- 1</span>
+                        <input type="text" class="form-control">
                     </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-2 col-sm-2 control-label">Tanggal</label>
-                      <div class="col-sm-4">
-                        <input type="date" class="form-control">
-                      </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Time</label>
-                        <div class="col-sm-4">
-                          <input type="Time" class="form-control">
+                        <label class="control-label col-md-2">Tanggal Tour</label>
+                        <div class="col-md-4">
+                        <div class="input-group input-large" data-date="01/01/2014" data-date-format="mm/dd/yyyy">
+                            <input type="text" class="form-control dpd1" name="from">
+                            <span class="input-group-addon">To</span>
+                            <input type="text" class="form-control dpd2" name="to">
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Dari</label>
-                        <div class="col-sm-4">
-                          <input type="Text" class="form-control">
+                        <span class="help-block">Select date range</span>
                         </div>
-                      </div>
-                     <div class="form-group">
-                      <label class="col-sm-2 col-sm-2 control-label">Tujuan</label>
-                      <div class="col-sm-4">
-                        <input type="Text" class="form-control">
-                      </div>
                     </div>
-                      <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Transportasi</label>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Durasi Perjalanan</label>
                         <div class="col-sm-4">
-                            <select class="form-control">
-                                <option>Bis</option>
-                                <option>Pesawat</option>
-                              </select>
+                        <input class="form-control" id="disabledInput" type="text" placeholder="4 Hari" disabled>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Ini Muncul klo dia pilih Pesawat</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Harga</label>
                         <div class="col-sm-4">
-                          <button type="submit" class="btn btn-primary">Pilih Pesawat</button>
+                        <input type="number" class="form-control">
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Hotel</label>
-                        <div class="col-sm-4">
-                          <select class="form-control">
-                            <option>Pilihan sesuai yang ada di database</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Catatan</label>
-                        <div class="col-sm-4">
-                        <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5"></textarea>
-                        </div>
-                      </div>
-                      <div>
-                        <button type="submit" class="btn btn-danger">Batal</button>
-                        <button type="submit" class="btn btn-success">Tambahkan</button>
-                      </div>
+                    </div>
                 </form>
-              </div>
+                </div>
             </div>
             <!-- col-lg-12-->
-          </div>
-          <div class="col-md-12 mt">
-            <div class="content-panel">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Hari Ke-</th>
-                    <th>Tanggal</th>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Transportasi</th>
-                    <th>Catatan</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
             </div>
-          </div>
-          <!-- /col-md-12 -->
-        </div>
-        <div style="padding:30px;margin-left:800px;">
-          <button class="btn btn-success" type="submit">Tambahkan Paket</button>
-        </div>
-          </div>
-        </div>
-        <!-- /row -->
-      </section>
-      <!-- /wrapper -->
+            <div class="row mt">
+                <div class="col-lg-12">
+                <div class="form-panel">
+                    
+                    <h4 class="mb"><i class="fa fa-angle-right"></i>Detail Paket</h4>
+                    <form class="form-horizontal style-form" method="POST" action="addPaket">
+                    @csrf
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                        <span>Hari Ke- 1</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tanggal</label>
+                        <div class="col-sm-4">
+                            <input type="date" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Time</label>
+                            <div class="col-sm-4">
+                            <input type="Time" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Dari</label>
+                            <div class="col-sm-4">
+                            <input type="Text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tujuan</label>
+                        <div class="col-sm-4">
+                            <input type="Text" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Transportasi</label>
+                            <div class="col-sm-4">
+                                <select class="form-control">
+                                    <option>Bis</option>
+                                    <option>Pesawat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Ini Muncul klo dia pilih Pesawat</label>
+                            <div class="col-sm-4">
+                            <button type="submit" class="btn btn-primary">Pilih Pesawat</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Hotel</label>
+                            <div class="col-sm-4">
+                            <select class="form-control">
+                                <option>Pilihan sesuai yang ada di database</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Catatan</label>
+                            <div class="col-sm-4">
+                            <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-danger">Batal</button>
+                            <button type="submit" class="btn btn-success">Tambahkan</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+                <!-- col-lg-12-->
+            </div>
+            <div class="col-md-12 mt">
+                <div class="content-panel">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Hari Ke-</th>
+                        <th>Tanggal</th>
+                        <th>Dari</th>
+                        <th>Tujuan</th>
+                        <th>Transportasi</th>
+                        <th>Catatan</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            <!-- /col-md-12 -->
+            </div>
+            <div style="padding:30px;margin-left:800px;">
+            <button class="btn btn-success" type="submit">Tambahkan Paket</button>
+            </div>
+            </div>
+            </div>
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->

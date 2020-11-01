@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class hotel extends Model
 {
     protected $table ='hotel';
-    protected $primaryKey = 'hotel_id';
-    public $incrementing = false;
-    protected $keyType = 'varchar';
+    protected $primaryKey = 'id';
+    public $incrementing = true;
     public $timestamps = false;
 }

@@ -14,9 +14,9 @@
     <link href="{{asset('asset/admin/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('asset/admin/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/admin/lib/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <!--external css-->
-    <link href="{{ asset('asset/admin/lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('asset/admin/lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-fileupload/bootstrap-fileupload.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-datepicker/css/datepicker.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-daterangepicker/daterangepicker.css') }}" />
@@ -49,7 +49,7 @@
             <!--logo end-->
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="logout">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -63,12 +63,12 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                 <h5 class="centered">Welcome,Admin</h5>     
-                <li class="mt">
+                {{-- <li class="mt">
                     <a class="{{ (url()->current() == url("/admin/index")) ? 'active' : '' }}" href="index">
                     <i class="fa fa-dashboard"></i>
                     <span>Home</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="sub-menu">
                     <a class="{{ (url()->current() == url("/admin/paket")) ? 'active' : '' }}" href="paket">
                     <i class="fa fa-tasks"></i>

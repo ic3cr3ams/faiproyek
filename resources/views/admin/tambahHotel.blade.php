@@ -1,55 +1,113 @@
 @extends('admin/MasterAdmin')
 @section('body')
     <section id="main-content">
-      <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Tambah Hotel</h3>
-        <!-- BASIC FORM ELELEMNTS -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <form class="form-horizontal style-form" method="POST" action="addPaket">
-                @csrf
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Nama Hotel</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control">
-                  </div>
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right">Tambah Hotel</i></h3>
+            @include('alert')
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                    </ul>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Alamat Hotel</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control">
+            @endif
+            <!-- BASIC FORM ELELEMNTS -->
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <div class="form-panel">
+                    @if(isset($edit))
+                    <form class="form-horizontal style-form" method="POST" action="/admin/editHotel">
+                            @csrf
+                            <div class="form-group">
+                                <input type="hidden" name="id" value={{$datahotel->id}}>
+                            <label class="col-sm-2 col-sm-2 control-label">Nama Hotel</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="nama" value="{{$datahotel->name}}" required>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Alamat Hotel</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="alamat" value="{{$datahotel->alamat}}" req>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Kota</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="kota" value="{{$datahotel->kota}}" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Negara</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="negara" value="{{$datahotel->negara}}" disabled>
+                                </div>
+                            </div>
+                            <div style="margin:10px;">
+                                <a href="listHotel"><button class="btn btn-danger" type="button">Batal</button></a>
+                                <button class="btn btn-success" type="submit">Edit Hotel</button>                                    
+                            </div>
+                        </form>
+                    @else
+                        <form class="form-horizontal style-form" method="POST" action="addHotel">
+                            @csrf
+                        <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Nama Hotel</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="nama" value="{{old('nama')}}">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Alamat Hotel</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="alamat" value="{{old('alamat')}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Kota</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="kota" value="{{old('kota')}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Negara</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="negara" value="{{old('negara')}}">
+                            </div>
+                        </div>
+                        {{-- <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Jenis Kamar</label>
+                            <div class="col-sm-4">
+                                <select class="form-control">
+                                    <option>Standard Room</option>
+                                    <option>Superior Room</option>
+                                    <option>Deluxe Room</option>
+                                </select>
+                            </div>
+                        </div> --}}
+                        {{-- <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Harga</label>
+                            <div class="col-sm-4">
+                                <input type="Number" class="form-control">
+                            </div>
+                        </div> --}}
+                        <div style="margin:10px;">
+                            <a href="listHotel"><button class="btn btn-danger" type="button">Batal</button></a>
+                                <button class="btn btn-success" type="submit">Tambahkan Hotel</button>
+                            
+                        </div>
+                    </form>
+                @endif
+                        
                     </div>
-                  </div>
-                <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Jenis Kamar</label>
-                    <div class="col-sm-4">
-                        <select class="form-control">
-                            <option>Standard Room</option>
-                            <option>Superior Room</option>
-                            <option>Deluxe Room</option>
-                          </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Harga</label>
-                    <div class="col-sm-4">
-                      <input type="Number" class="form-control">
-                    </div>
-                  </div>
-              </form>
+                </div>
+            <!-- col-lg-12-->
             </div>
-          </div>
-          <!-- col-lg-12-->
-        </div>
-        <div style="margin:10px;">
-        <button class="btn btn-danger" type="submit">Batal</button>
-          <button class="btn btn-success" type="submit">Tambahkan Hotel</button>
-        </div>
-          </div>
-        </div>
-        <!-- /row -->
-      </section>
+            
+            <!-- /row -->
+        </section>
       <!-- /wrapper -->
     </section>
     <!-- /MAIN CONTENT -->

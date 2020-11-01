@@ -24,10 +24,11 @@
                 <table class="table table-striped table-advance table-hover">
                     <thead>
                     <tr>
-                        <th>Nama Hotel</th>
-                        <th>Alamat</th>
-                        <th>Kota</th>
-                        <th>Negara</th>
+                        <th>Jenis Kamar</th>
+                        <th>Kapasitas</th>
+                        <th>Harga</th>
+                        <th>Breakfast</th>
+                        <th>Keterangan</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -47,7 +48,7 @@
                                 </tr>
                             @endforeach
                         @else
-                            <tr><td colspan=5><center><strong> Ada Data</strong></center></td></tr>
+                            <tr><td colspan=6><center><strong>Tidak Ada Data</strong></center></td></tr>
                         @endif
                         {{-- <tr>
                             <td>

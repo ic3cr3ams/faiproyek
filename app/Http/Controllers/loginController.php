@@ -12,7 +12,8 @@ class loginController extends Controller
         $email=$request->email;
         $password=$request->password;
         if($email=="admin@adminadmin"&&$password=="admin"){
-            return view('admin.advanced_form_components');
+            Session::put('adminlogin',true);
+            return redirect()->route('listpaket');
         }
         else{
             $cekemail=false;
@@ -36,5 +37,8 @@ class loginController extends Controller
             else if(!$cekemail){return redirect()->back()->with("error","Email Not Found");}
             else if(!$cekpass){return redirect()->back()->with("error","Wrong Password");}
         }
+    }
+    public function logout(){
+        
     }
 }
