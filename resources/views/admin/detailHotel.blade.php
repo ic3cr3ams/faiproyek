@@ -3,7 +3,7 @@
 
 <section id="main-content">
     <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>List Hotel</h3>
+        <h3><i class="fa fa-angle-right"></i>{{$datahotel->name}}</h3>
         <div class="row">
           <!-- /col-md-12 -->
         </div>

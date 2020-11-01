@@ -49,7 +49,7 @@
             <!--logo end-->
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="logout">Logout</a></li>
+                    <li><a class="logout" href="/admin/logout">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -70,31 +70,31 @@
                     </a>
                 </li> --}}
                 <li class="sub-menu">
-                    <a class="{{ (url()->current() == url("/admin/paket")) ? 'active' : '' }}" href="paket">
+                    <a class="{{ (url()->current() == url("/admin/paket")) ? 'active' : '' }}" href="/admin/paket">
                     <i class="fa fa-tasks"></i>
                     <span>Paket</span>
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a class="{{ (url()->current() == url("/admin/listHotel")) ? 'active' : '' }}" href="listHotel">
+                    <a class="{{ (url()->current() == url("/admin/listHotel")) ? 'active' : '' }}" href="/admin/listHotel">
                     <i class="fa fa-hospital-o"></i>
                     <span>Hotel</span>
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a class="{{ (url()->current() == url("/admin/listPesawat")) ? 'active' : '' }}" href="listPesawat">
+                    <a class="{{ (url()->current() == url("/admin/listPesawat")) ? 'active' : '' }}" href="/admin/listPesawat">
                     <i class=" fa fa-plane"></i>
                     <span>Pesawat</span>
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a class="{{ (url()->current() == url("/admin/listCustomer")) ? 'active' : '' }}" href="listCutomer">
+                    <a class="{{ (url()->current() == url("/admin/listCustomer")) ? 'active' : '' }}" href="/admin/listCutomer">
                     <i class=" fa fa-users"></i>
                     <span>Customer</span>
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a class="{{ (url()->current() == url("/admin/laporan")) ? 'active' : '' }}" href="laporan">
+                    <a class="{{ (url()->current() == url("/admin/laporan")) ? 'active' : '' }}" href="/admin/laporan">
                     <i class=" fa fa-files-o"></i>
                     <span>Laporan</span>
                     </a>
