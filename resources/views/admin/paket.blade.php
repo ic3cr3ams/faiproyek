@@ -1,64 +1,80 @@
 @extends('admin/MasterAdmin')
 @section('body')
 <section id="main-content">
-      <section class="wrapper">
+    <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i>Paket Tour</h3>
-        <div class="row">
-          <!-- /col-md-12 -->
-        </div>
         <!-- row -->
         <div class="row mt">
-          <div class="col-md-12">
-            <div class="content-panel">
-              <table class="table table-striped table-advance table-hover">
-                <thead>
-                  <tr>
-                    <th>Nama Paket</th>
-                    <th class="hidden-phone">Tanggal Tour</th>
-                    <th>Harga</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">Nama Paket</a>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>12000.00$ </td>
-                    <td>
-                      <button class="btn btn-warning btn-xs"><a href="lihatdetail">Lihat detail</a></button>
-                      <button class="btn btn-info btn-xs"><a href="editPaket"><i class="fa fa-pencil"></i> Edit </a></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">
-                        Dashio co
-                        </a>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>17900.00$ </td>
-                    <td>
-                      <button class="btn btn-warning btn-xs"><a href="lihatdetail">Lihat detail</a></button>
-                      <button class="btn btn-info btn-xs"><a href="editPaket"><i class="fa fa-pencil"></i> Edit </a></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <table class="table table-striped table-advance table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nama Paket</th>
+                                <th>Durasi</th>
+                                <th>Lokasi</th>
+                                <th>Deskripsi</th>
+                                <th>Gambar</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(!$datapaket->isEmpty())
+                                @foreach ($datapaket as $item=>$value)
+                                    <tr>
+                                        <td>{{$value->nama}}</td>
+                                        <td>{{$value->durasi}} Hari</td>
+                                        <td>{{$value->kota}},{{$value->negara}}</td>
+                                        <td>{{$value->deskripsi}}</td>                                       
+                                        <td><img src=
+                                            {{-- "{{url('/paketPicture/'.$value->gambar)}}" --}}
+                                            {{asset('/storage/paketPicture/'.$value->gambar)}}
+                                             alt="eaa" width="150" height="100" class="img-thumbnail"></td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan=5><center><strong>Tidak Ada Data</strong></center></td>
+                                </tr>
+                            @endif
+                        {{-- <tr>
+                            <td>
+                                <a href="basic_table.html#">Nama Paket</a>
+                            </td>
+                            <td class="hidden-phone">Lorem Ipsum dolor</td>
+                            <td>12000.00$ </td>
+                            <td>
+                                <button class="btn btn-warning btn-xs"><a href="lihatdetail">Lihat detail</a></button>
+                                <button class="btn btn-info btn-xs"><a href="editPaket"><i class="fa fa-pencil"></i> Edit </a></button>
+                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a href="basic_table.html#">
+                                Dashio co
+                                </a>
+                            </td>
+                            <td class="hidden-phone">Lorem Ipsum dolor</td>
+                            <td>17900.00$ </td>
+                            <td>
+                                <button class="btn btn-warning btn-xs"><a href="lihatdetail">Lihat detail</a></button>
+                                <button class="btn btn-info btn-xs"><a href="editPaket"><i class="fa fa-pencil"></i> Edit </a></button>
+                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
+                            </td>
+                        </tr> --}}
+                        </tbody>
+                    </table>
+                </div>
+                <div style="padding:10px;margin-left:800px;">
+                    <a href="/admin/tambahPaket"><button type="submit" class="btn btn-success">Tambah Paket</button></a>
+                </div>
+                <!-- /content-panel -->
             </div>
-            <div style="padding:10px;margin-left:800px;">
-              <button type="submit" class="btn btn-success"><a href="tambahPaket">Tambah Paket</a></button>
-            </div>
-            <!-- /content-panel -->
-          </div>
-          <!-- /col-md-12 -->
         </div>
         <!-- /row -->
-      </section>
     </section>
+</section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->

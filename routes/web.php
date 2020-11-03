@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\paketController;
 use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -91,80 +92,82 @@ Route::get('/', function () {
 })->name('homepage');
 
 //Admin
-Route::prefix('admin')->group(function () {
-    Route::view('index','admin.index')->name('indexadmin');
-
-    Route::get('paket', function () {
-        return view('admin.paket');
-    })->name('listpaket');
-
-    Route::get('tambahPaket', function () {
-        return view('admin.tambahPaket');
+Route::middleware("authAdmin")->group(function(){
+    Route::prefix('admin')->group(function () {
+        Route::view('index','admin.index')->name('indexadmin');
+    
+        Route::get('paket','paketController@listPaket' )->name('listpaket');
+    
+        Route::get('tambahPaket', function () {
+            return view('admin.tambahPaket2');
+        });
+        Route::post('addPaket','paketController@addPaket'); 
+        Route::post('/addHotel','hotelController@addHotel');
+        Route::get('editPaket', function () {
+            return view('admin.editPaket');
+        });
+        Route::get('lihatdetail', function () {
+            return view('admin/lihatdetail');
+        });
+        Route::get('listHotel','hotelController@listHotel')->name('listHotel');
+        Route::get('tambahHotel', function () {
+            return view('admin/tambahHotel');
+        });
+    
+        Route::post('/editHotel',"hotelController@editHotel");
+        Route::get('editHotel/{param}',"hotelController@editHotelView");
+        Route::get("detailHotel/{param}","hotelController@detailHotel");
+        Route::get("tambahdetailHotel/{param}","hotelController@tambahdetailHotelview");
+        Route::post("tambahdetailHotel","hotelController@tambahdetailHotel");
+        Route::get("dHotel/{param}","hotelController@detailHotel");
+    
+        Route::get('deleteHotel/{param}',"hotelController@deleteHotel");
+        Route::get('listPesawat', function () {
+            return view('admin/listPesawat');
+        });
+        Route::get('tambahPesawat', function () {
+            return view('admin/tambahPesawat');
+        });
+        Route::get('ditPesawat', function () {
+            return view('admin/editPesawat');
+        });
+        Route::get('flot_chart', function () {
+            return view('admin/flot_chart');
+        });
+        Route::get('listCutomer', function () {
+            return view('admin/listCutomer');
+        });
+        Route::get('detailCustomer', function () {
+            return view('admin/detailCustomer');
+        });
+        Route::get('laporan', function () {
+            return view('admin/laporan');
+        });
+    
+        Route::get('form_validation', function () {
+            return view('admin/form_validation');
+        });
+        Route::get('index', function () {
+            return view('admin/index');
+        });
+        Route::get('invoice', function () {
+            return view('admin/invoice');
+        });
+        Route::get('profile', function () {
+            return view('admin/profile');
+        });
+        Route::get('advanced_form_components', function () {
+            return view('admin/advanced_form_components');
+        });
+        Route::get('form_component', function () {
+            return view('admin/form_component');
+        });
+        Route::get('advanced_table', function () {
+            return view('admin/advanced_table');
+        });
+        Route::get('logout','adminController@logout');
     });
-    Route::post('/addHotel','hotelController@addHotel');
-    Route::get('editPaket', function () {
-        return view('admin.editPaket');
-    });
-    Route::get('lihatdetail', function () {
-        return view('admin/lihatdetail');
-    });
-    Route::get('listHotel','hotelController@listHotel')->name('listHotel');
-    Route::get('tambahHotel', function () {
-        return view('admin/tambahHotel');
-    });
-
-    Route::post('/editHotel',"hotelController@editHotel");
-    Route::get('editHotel/{param}',"hotelController@editHotelView");
-    Route::get("detailHotel/{param}","hotelController@detailHotel");
-    Route::get("tambahdetailHotel/{param}","hotelController@tambahdetailHotelview");
-    Route::post("tambahdetailHotel","hotelController@tambahdetailHotel");
-    Route::get("dHotel/{param}","hotelController@detailHotel");
-
-    Route::get('deleteHotel/{param}',"hotelController@deleteHotel");
-    Route::get('listPesawat', function () {
-        return view('admin/listPesawat');
-    });
-    Route::get('tambahPesawat', function () {
-        return view('admin/tambahPesawat');
-    });
-    Route::get('ditPesawat', function () {
-        return view('admin/editPesawat');
-    });
-    Route::get('flot_chart', function () {
-        return view('admin/flot_chart');
-    });
-    Route::get('listCutomer', function () {
-        return view('admin/listCutomer');
-    });
-    Route::get('detailCustomer', function () {
-        return view('admin/detailCustomer');
-    });
-    Route::get('laporan', function () {
-        return view('admin/laporan');
-    });
-
-    Route::get('form_validation', function () {
-        return view('admin/form_validation');
-    });
-    Route::get('index', function () {
-        return view('admin/index');
-    });
-    Route::get('invoice', function () {
-        return view('admin/invoice');
-    });
-    Route::get('profile', function () {
-        return view('admin/profile');
-    });
-    Route::get('advanced_form_components', function () {
-        return view('admin/advanced_form_components');
-    });
-    Route::get('form_component', function () {
-        return view('admin/form_component');
-    });
-    Route::get('advanced_table', function () {
-        return view('admin/advanced_table');
-    });
-    Route::get('logout','adminController@logout');
 });
+
 // Route::get('/admin/detailHotel/2',"hotelController@detailHotel");
 

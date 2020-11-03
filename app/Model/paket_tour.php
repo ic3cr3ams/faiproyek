@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class paket_tour extends Model
 {
     protected $table ='paket_tour';
-    protected $primaryKey = 'tour_id';
-    public $incrementing = false;
-    protected $keyType = 'varchar';
+    protected $primaryKey = 'id';
+    public $incrementing = true;
     public $timestamps = false;
 }
