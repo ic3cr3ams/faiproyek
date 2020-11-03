@@ -120,7 +120,7 @@
     </section>
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="{{ asset('asset/admin/lib/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('asset/admin/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('asset/admin/lib/bootstrap/js/bootstrap.js') }}"></script>
     <script class="include" type="text/javascript" src="{{ asset('asset/admin/lib/jquery.dcjqaccordion.2.7.js') }}"></script>
     <script src="{{ asset('asset/admin/lib/jquery.scrollTo.min.js') }}"></script>
     <script src="{{ asset('asset/admin/lib/jquery.nicescroll.js') }}" type="text/javascript"></script>
@@ -136,6 +136,7 @@
     <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-daterangepicker/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('asset/admin/lib/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
     <script src="{{ asset('asset/admin/lib/advanced-form-components.js') }}"></script>
+    @stack('js')
 </body>
 
 </html>

@@ -115,7 +115,10 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/editHotel',"hotelController@editHotel");
     Route::get('editHotel/{param}',"hotelController@editHotelView");
-    Route::get('detailHotel/{param}',"hotelController@detailHotel");
+    Route::get("detailHotel/{param}","hotelController@detailHotel");
+    Route::get("tambahdetailHotel/{param}","hotelController@tambahdetailHotelview");
+    Route::post("tambahdetailHotel","hotelController@tambahdetailHotel");
+    Route::get("dHotel/{param}","hotelController@detailHotel");
 
     Route::get('deleteHotel/{param}',"hotelController@deleteHotel");
     Route::get('listPesawat', function () {
@@ -154,6 +157,9 @@ Route::prefix('admin')->group(function () {
     });
     Route::get('advanced_form_components', function () {
         return view('admin/advanced_form_components');
+    });
+    Route::get('form_component', function () {
+        return view('admin/form_component');
     });
     Route::get('advanced_table', function () {
         return view('admin/advanced_table');

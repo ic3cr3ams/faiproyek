@@ -33,13 +33,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @if(isset($dataHotel))
-                            @foreach ($dataHotel as $item => $value)
+                        @if(isset($datadetail))
+                            @foreach ($datadetail as $item => $value)
                                 <tr>
-                                    <td>{{$value->name}}</td>
-                                    <td>{{$value->alamat}}</td>
-                                    <td>{{$value->kota}}</td>
-                                    <td>{{$value->negara}}</td>
+                                    <td>{{$value->jenis_kamar}}</td>
+                                    <td>{{$value->kapasitas}} Orang</td>
+                                    <td>Rp {{number_format($value->harga)}}</td>
+                                    <td>
+                                        @if($value->breakfast=="0")Not Included
+                                        @else Included
+                                        @endif
+                                    </td>
+                                    <td>{{$value->keterangan}}</td>
                                     <td>
                                         <a href="editHotel/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a>
                                         <a href="detailHotel/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Details </button></a>
@@ -65,8 +70,9 @@
                     </tbody>
                 </table>
                 </div>
-                <div style="padding:10px;margin-left:900px;">
-                    <a href="tambahHotel"><button type="submit" class="btn btn-success">Tambah Hotel</button></a>
+                <div style="padding:10px;margin-left:800px;">
+                    <a href="/admin/listHotel"><button type="submit" class="btn btn-primary">Kembali</button></a>
+                    <a href="/admin/tambahdetailHotel/{{Session::get('idhotel')}}"><button type="submit" class="btn btn-success">Tambah Kamar Hotel</button></a>
                 </div>
                 <!-- /content-panel -->
             </div>

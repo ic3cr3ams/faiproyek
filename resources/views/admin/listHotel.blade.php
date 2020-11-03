@@ -41,8 +41,10 @@
                                     <td>{{$value->negara}}</td>
                                     <td>
                                         <a href="editHotel/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a>
-                                        <a href="detailHotel/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Details </button></a>
-                                        <a href="deleteHotel/{{$value->id}}"><button class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete</button></a>
+                                        <a href="/admin/detailHotel/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Details </button></a>
+                                        {{-- <a href="deleteHotel/{{$value->id}}"> --}}
+                                            <button class="btn btn-danger btn-sm btnkemodal" id={{$value->id}} namahotel="{{$value->name}}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash-o "></i> Delete</button>
+                                        {{-- </a> --}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -73,12 +75,40 @@
         </div>
         <!-- /row -->
       </section>
+      <!-- Button trigger modal -->
+        {{-- <button type="button" class="test btn btn-primary" data-toggle="modal" data-target="#exampleModal" id=3 namahotel="Tuestingg">
+            Launch demo modal
+        </button> --}}
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Hotel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id=namahotel>Yakin Hapus Hotel </p>
+          {{-- <p id="idhotel"></p> --}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" id="btndeletehotel">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
     </section>
+    
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
   <!-- js placed at the end of the document so the pages load faster -->
-  <script src="{{asset('asset/admin/lib/jquery/jquery.min.js')}}"></script>
+  {{-- @push('js')
+  <script src="{{asset('asset/admin/lib/jquery/jquery.js')}}"></script>
   <script src="{{asset('asset/admin/lib/bootstrap/js/bootstrap.min.js')}}"></script>
   <script class="include" type="text/javascript" src="{{asset('asset/admin/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
   <script src="{{asset('asset/admin/lib/jquery.scrollTo.min.js')}}"></script>
@@ -86,7 +116,22 @@
   <!--common script for all pages-->
   <script src="{{asset('asset/admin/lib/common-scripts.js')}}"></script>
   <!--script for this page-->
+  @endpush --}}
 
-
-
-  @endsection
+    @endsection
+    @push('js')
+        <script>
+            $(document).on("click", ".btnkemodal", function () {
+                var hotelId = $(this).attr('id');
+                var namahotel= $(this).attr('namahotel');
+                console.log(namahotel);
+                $(".modal-body #namahotel").append($(this).attr("namahotel")+ " ?")
+                console.log(hotelId);
+                // $(".modal-body #idhotel").html(hotelid);
+                $(".modal-footer #btndeletehotel").wrap("<a href='/admin/deleteHotel/"+hotelId+"'></a>")
+                // As pointed out in comments, 
+                // it is unnecessary to have to manually call the modal.
+                // $('#addBookDialog').modal('show');
+            });
+        </script>
+    @endpush
