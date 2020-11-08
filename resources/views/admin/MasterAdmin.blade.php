@@ -94,12 +94,21 @@
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a class="{{ (url()->current() == url("/admin/laporan")) ? 'active' : '' }}" href="/admin/laporan">
-                    <i class=" fa fa-files-o"></i>
-                    <span>Laporan</span>
-                    </a>
-                </li>
-                </ul>
+                    <a href="javascript:;">
+                        <i class=" fa fa-files-o"></i>
+                      <span>Laporan</span>
+                      </a>
+                    <ul class="sub">
+                      <li><a class="{{ (url()->current() == url("/admin/laporan")) ? 'active' : '' }}" href="/admin/laporan">Laporan Penjualan</a></li>
+                      <li><a class="{{ (url()->current() == url("/admin/laporanlaba")) ? 'active' : '' }}" href="/admin/laporanlaba">Laporan Laba Rugi</a></li>
+                    </ul>
+                  </li>
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                      <i class="fa fa-comments-o"></i>
+                      <span>Chat Room</span>
+                      </a>
+                  </li>
                 <!-- sidebar menu end-->
             </div>
         </aside>

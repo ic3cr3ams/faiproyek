@@ -11,90 +11,65 @@
                 </div>
                 <!-- /pull-left -->
                 <div class="pull-right">
-                  <h2>invoice</h2>
+                  <h2>Laporan Penjualan</h2>
                 </div>
                 <!-- /pull-right -->
                 <div class="clearfix"></div>
                 <br>
                 <br>
                 <br>
-                <div class="row">
-                  <div class="col-md-9">
-                    <h4>Paul Smith</h4>
-                    <address>
-                  <strong>Enterprise Corp.</strong><br>
-                  234 Great Ave, Suite 600<br>
-                  San Francisco, CA 94107<br>
-                  <abbr title="Phone">P:</abbr> (123) 456-7890
-                </address>
-                  </div>
-                  <!-- /col-md-9 -->
-                  <div class="col-md-3">
-                    <br>
-                    <div>
-                      <div class="pull-left"> INVOICE NO : </div>
-                      <div class="pull-right"> 000283 </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div>
-                      <!-- /col-md-3 -->
-                      <div class="pull-left"> INVOICE DATE : </div>
-                      <div class="pull-right"> 15/03/14 </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <!-- /row -->
-                    <br>
-                    <div class="well well-small green">
-                      <div class="pull-left"> Total Due : </div>
-                      <div class="pull-right"> 8,000 USD </div>
-                      <div class="clearfix"></div>
-                    </div>
-                  </div>
-                  <!-- /invoice-body -->
+                <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
+                  <select class="form-control">
+                    <option>Januari</option>
+                    <option>Februari</option>
+                    <option>Maret</option>
+                    <option>April</option>
+                    <option>Mei</option>
+                    <option>Juni</option>
+                    <option>Juli</option>
+                    <option>Agustus</option>
+                    <option>September</option>
+                    <option>Oktober</option>
+                    <option>November</option>
+                    <option>Desember</option>
+                  </select>
                 </div>
-                <!-- /col-lg-10 -->
+                <div class="row">
                 <table class="table">
                   <thead>
                     <tr>
-                      <th style="width:60px" class="text-center">QTY</th>
-                      <th class="text-left">DESCRIPTION</th>
-                      <th style="width:140px" class="text-right">UNIT PRICE</th>
-                      <th style="width:90px" class="text-right">TOTAL</th>
+                      <th>Tanggal</th>
+                      <th >Nomor Transaksi</th>
+                      <th>Nama Customer</th>
+                      <th>Nama Paket</th>
+                      <th style="width:140px" class="text-right">Harga Paket</th>
+                      <th style="width:90px" class="text-right">Total</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="text-center">1</td>
+                      <td>1</td>
                       <td>Flat Pack Heritage</td>
+                      <td>Maria</td>
+                      <td>Paket Tour</td>
                       <td class="text-right">$429.00</td>
                       <td class="text-right">$429.00</td>
                     </tr>
                     <tr>
-                      <td class="text-center">2</td>
-                      <td>Carry On Suitcase</td>
-                      <td class="text-right">$300.00</td>
-                      <td class="text-right">$600.00</td>
+                      <td>1</td>
+                      <td>Flat Pack Heritage</td>
+                      <td>Maria</td>
+                      <td>Paket Tour</td>
+                      <td class="text-right">$429.00</td>
+                      <td class="text-right">$429.00</td>
                     </tr>
-                    <tr>
-                      <td colspan="2" rowspan="4">
-                        <h4>Terms and Conditions</h4>
-                        <p>Thank you for your business. We do expect payment within 21 days, so please process this invoice within that time. There will be a 1.5% interest charge per month on late invoices.</p>
-                        <td class="text-right"><strong>Subtotal</strong></td>
-                        <td class="text-right">$1029.00</td>
-                    </tr>
-                    <tr>
-                      <td class="text-right no-border"><strong>Shipping</strong></td>
-                      <td class="text-right">$0.00</td>
-                    </tr>
-                    <tr>
-                      <td class="text-right no-border"><strong>VAT Included in Total</strong></td>
-                      <td class="text-right">$0.00</td>
-                    </tr>
-                    <tr>
-                      <td class="text-right no-border">
-                        <div class="well well-small green"><strong>Total</strong></div>
-                      </td>
-                      <td class="text-right"><strong>$1029.00</strong></td>
+                    <tr style="background-color: gray;color:black;">
+                        <td>Total </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td>$12345</td>
                     </tr>
                   </tbody>
                 </table>
@@ -108,25 +83,7 @@
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="invoice.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
-          </a>
-      </div>
-    </footer>
+    
     <!--footer end-->
   </section>
 
