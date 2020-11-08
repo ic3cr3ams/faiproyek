@@ -148,7 +148,14 @@ Route::middleware("authAdmin")->group(function(){
         Route::get('laporan', function () {
             return view('admin/laporan');
         });
-    
+        Route::get('laporanlaba', function () {
+            return view('admin/laporanlaba');
+        });
+        
+        Route::get('chat', function () {
+            return view('admin/chat');
+        });
+
         Route::get('form_validation', function () {
             return view('admin/form_validation');
         });
