@@ -104,9 +104,9 @@
                     </ul>
                   </li>
                   <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="/admin/chat">
                       <i class="fa fa-comments-o"></i>
-                      <span>Chat Room</span>
+                        <span>Chat Room</span>
                       </a>
                   </li>
                 <!-- sidebar menu end-->
