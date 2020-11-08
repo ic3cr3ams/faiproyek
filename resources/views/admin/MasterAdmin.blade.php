@@ -81,12 +81,12 @@
                     <span>Hotel</span>
                     </a>
                 </li>
-                <li class="sub-menu">
+                {{-- <li class="sub-menu">
                     <a class="{{ (url()->current() == url("/admin/listPesawat")) ? 'active' : '' }}" href="/admin/listPesawat">
                     <i class=" fa fa-plane"></i>
                     <span>Pesawat</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="sub-menu">
                     <a class="{{ (url()->current() == url("/admin/listCustomer")) ? 'active' : '' }}" href="/admin/listCutomer">
                     <i class=" fa fa-users"></i>

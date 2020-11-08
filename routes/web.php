@@ -103,9 +103,14 @@ Route::middleware("authAdmin")->group(function(){
         });
         Route::post('addPaket','paketController@addPaket'); 
         Route::post('/addHotel','hotelController@addHotel');
-        Route::get('editPaket', function () {
-            return view('admin.editPaket');
-        });
+        Route::get('/editPaket/{param}','paketController@editPaketView');
+        Route::get('/detailPaket/{param}','paketController@detailPaketView');
+        Route::get('/tambahdetailpaket/{param}','paketController@tambahdetailPaketView');
+        Route::get('/ajaxjenishotel/{param}','paketController@ajaxjenishotel');
+        Route::get('/ajaxhargakamar','paketController@ajaxhargakamar');
+        Route::post('/tambahdetailPaket','paketController@tambahdetailPaket');
+
+        Route::post('/editpaket','paketController@editPaket');
         Route::get('lihatdetail', function () {
             return view('admin/lihatdetail');
         });

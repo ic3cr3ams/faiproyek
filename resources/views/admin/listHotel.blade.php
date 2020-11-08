@@ -40,7 +40,7 @@
                                     <td>{{$value->kota}}</td>
                                     <td>{{$value->negara}}</td>
                                     <td>
-                                        <a href="editHotel/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a>
+                                        <a href="/admin/editHotel/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a>
                                         <a href="/admin/detailHotel/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Details </button></a>
                                         {{-- <a href="deleteHotel/{{$value->id}}"> --}}
                                             <button class="btn btn-danger btn-sm btnkemodal" id={{$value->id}} namahotel="{{$value->name}}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash-o "></i> Delete</button>

@@ -7,30 +7,22 @@
             <div class="row mt">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                    <form class="form-horizontal style-form" method="POST" action="addPaket" enctype="multipart/form-data">
+                    <form class="form-horizontal style-form" method="POST" action="/admin/editpaket" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="id" value="{{$datapaket->id}}">
+                        <input type="hidden" name="filegambarold" value="{{$datapaket->gambar}}">
+
                         <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Nama Paket</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="nama" required>
-                        </div>
-                        </div>
-                        {{-- <div class="form-group">
-                            <label class="control-label col-md-2">Tanggal Tour</label>
-                            <div class="col-md-4">
-                            <div class="input-group input-large" data-date="01/01/2014" data-date-format="mm/dd/yyyy">
-                                <input type="text" class="form-control dpd1" name="from">
-                                <span class="input-group-addon">To</span>
-                                <input type="text" class="form-control dpd2" name="to">
+                            <label class="col-sm-2 col-sm-2 control-label">Nama Paket</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="nama" value="{{$datapaket->nama}}" readonly>
                             </div>
-                            <span class="help-block">Select date range</span>
-                            </div>
-                        </div> --}}
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Durasi Perjalanan</label>
                             <div class="col-sm-4">
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min=1 name=durasi required>
+                                    <input class="form-control" type="number" min=1 name=durasi value="{{$datapaket->durasi}}" required>
                                     <span class="input-group-addon">Hari</span>
                                 </div>                                
                             </div>                                                       
@@ -44,26 +36,26 @@
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Kota</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="kota" value="{{old('kota')}}" required>
+                                <input type="text" class="form-control" name="kota" value="{{$datapaket->kota}}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Negara</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="negara" value="{{old('negara')}}" required>
+                                <input type="text" class="form-control" name="negara" value="{{$datapaket->negara}}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Deskripsi</label>
                             <div class="col-sm-4">
-                                <textarea name="deskripsi" class="form-control"></textarea>
+                                <textarea name="deskripsi" class="form-control">{{$datapaket->deskripsi}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Ambil Keuntungan</label>
                             <div class="col-sm-4">
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min=0 name=keutungan value="" required>
+                                    <input class="form-control" type="number" min=0 name=keutungan value="{{$datapaket->keuntungan}}" required>
                                     <span class="input-group-addon">%</span>
                                 </div>                                
                             </div>                                                       
@@ -75,7 +67,7 @@
                                     <span class="btn btn-theme02 btn-file">
                                         <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select file</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                        <input type="file" class="default" name="gambar" accept="image/*" required/>
+                                        <input type="file" class="default" name="gambar" accept="image/*"/>
                                         </span>
                                         <span class="fileupload-preview" style="margin-left:5px;"></span>
                                     <a href="advanced_form_components.html#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
@@ -83,7 +75,7 @@
                             </div>
                         </div> 
                         <div style="padding:30px;margin-left:800px;">
-                            <button class="btn btn-success" type="submit">Tambahkan Paket</button>
+                            <button class="btn btn-success" type="submit">Edit Paket</button>
                         </div>                       
                     </form>
                     </div>

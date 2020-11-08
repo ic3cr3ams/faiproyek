@@ -77,5 +77,4 @@ class hotelController extends Controller
         ]);
         return Redirect::to("/admin/detailHotel/$request->id")->with('success',"Berhasil Menambah detail Hotel");
     }
-
 }

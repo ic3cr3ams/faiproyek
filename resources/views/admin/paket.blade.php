@@ -15,7 +15,8 @@
                                 <th>Lokasi</th>
                                 <th>Deskripsi</th>
                                 <th>Gambar</th>
-                               
+                                <th>Ambil Keuntungan</th>
+                                <th>Action<th>                               
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,11 @@
                                             {{-- "{{url('/paketPicture/'.$value->gambar)}}" --}}
                                             {{asset('/storage/paketPicture/'.$value->gambar)}}
                                              alt="eaa" width="150" height="100" class="img-thumbnail"></td>
+                                        <td>{{$value->keuntungan}}%</td>
+                                        <td>
+                                            <a href="/admin/editPaket/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a>
+                                            <a href="/admin/detailPaket/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Details </button></a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             @else
