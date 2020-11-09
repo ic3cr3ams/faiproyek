@@ -24,8 +24,8 @@
                                 <div class="input-group">
                                     <input class="form-control" type="number" min=1 name=durasi value="{{$datapaket->durasi}}" required>
                                     <span class="input-group-addon">Hari</span>
-                                </div>                                
-                            </div>                                                       
+                                </div>
+                            </div>
                         </div>
                         {{-- <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Harga</label>
@@ -55,10 +55,10 @@
                             <label class="col-sm-2 col-sm-2 control-label">Ambil Keuntungan</label>
                             <div class="col-sm-4">
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min=0 name=keutungan value="{{$datapaket->keuntungan}}" required>
+                                    <input class="form-control" type="number" min=0 name=keuntungan value="{{$datapaket->keuntungan}}" required>
                                     <span class="input-group-addon">%</span>
-                                </div>                                
-                            </div>                                                       
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">Gambar</label>
@@ -73,15 +73,15 @@
                                     <a href="advanced_form_components.html#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <div style="padding:30px;margin-left:800px;">
                             <button class="btn btn-success" type="submit">Edit Paket</button>
-                        </div>                       
+                        </div>
                     </form>
                     </div>
                 </div>
-            <!-- col-lg-12-->           
-            </div>           
+            <!-- col-lg-12-->
+            </div>
             <!-- /row -->
         </section>
         <!-- /wrapper -->

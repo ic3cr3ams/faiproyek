@@ -47,7 +47,7 @@ class paketController extends Controller
         // dd($request->id);
         $datapaket=paket_tour::findOrFail($request->id);
         $file=$request->file('gambar');
-        if(isset($file)){          
+        if(isset($file)){
             $namagambarold=$request->filegambarold;
             Storage::delete("paketPicture/$request->filegambarold");
             $tujuanfile='paketPicture';
@@ -60,19 +60,19 @@ class paketController extends Controller
         }
         $datapaket->durasi=$request->durasi;
         $datapaket->deskripsi=$request->deskripsi;
-        $datapaket->kentungan=$request->keuntungan;
+        $datapaket->keuntungan=$request->keuntungan;
         $datapaket->save();
         return redirect()->route('listpaket')->with('Berhasil Edit Paket');
     }
     public function detailPaketView($id){
         // $datadetailpaket=dpaket::join('hotel','dpaket2.id_hotel','=','hotel.id')->where('id_paket',$id)->orderBy('hari','asc')->get();
-        $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get(); 
-        $datahotel=hotel::all();       
+        $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get();
+        $datahotel=hotel::all();
         return view('admin.detailpaket2',["datadetailpaket"=>$datadetailpaket,"idpaket"=>$id,"datahotel"=>$datahotel]);
     }
     public function tambahdetailPaketView($id){
         // $datadetailpaket=dpaket::join('hotel','dpaket2.id_hotel','=','hotel.id')->where('id_paket',$id)->orderBy('hari','asc')->get();
-        $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get();    
+        $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get();
         $paket=paket_tour::where('id',$id)->first();
         $dataHotel=hotel::where("kota",$paket->kota)->where("negara",$paket->negara)->get();
         // dd($paket->kota.$paket->negara);
@@ -89,7 +89,7 @@ class paketController extends Controller
         return $datajeniskamar;
     }
     public function ajaxhargakamar(){
-        $datajeniskamar=dhotel::where('id_hotel',$_GET['idhotel'])->where('jenis_kamar',$_GET['namajenis'])->first();        
+        $datajeniskamar=dhotel::where('id_hotel',$_GET['idhotel'])->where('jenis_kamar',$_GET['namajenis'])->first();
         return $datajeniskamar;
         // return $datajeniskamar;
     }
