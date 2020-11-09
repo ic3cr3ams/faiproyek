@@ -39,6 +39,11 @@ class paketController extends Controller
         // dd($datapaket->isEmpty());
         return view('admin.paket',["datapaket"=>$datapaket]);
     }
+    public function listTour()
+    {
+        $dataTour=paket_tour::all();
+        return view('/paket',["dataTour"=>$dataTour]);
+    }
     public function editPaketView($id){
         $datapaket=paket_tour::findOrFail($id);
         return view('admin.editpaket2',["datapaket"=>$datapaket]);

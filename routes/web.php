@@ -72,6 +72,7 @@ Route::get('logout','mctrl@logout');
 Route::get('/paket', function () {
     return view('paket');
 });
+Route::get('/paket','PaketController@listTour');
 Route::get('/detailpaket', function () {
     return view('detailpaket');
 });

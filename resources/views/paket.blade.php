@@ -48,30 +48,31 @@
           </div>
           <div class="col-lg-9">
           	<div class="row">
+				@foreach ($dataTour as $tour)
           		<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
 		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/paket.jpg);">
-
 		    					</a>
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="#">Jerussalem Blessing Holyland Petra</a></h3>
+				    						<h3><a href="#">{{ $tour["nama"] }}</a></h3>
 			    						</div>
 			    						<div class="two">
-			    							<span class="price">$2.575</span>
+			    							<span class="price">Rp.2.575</span>
 		    							</div>
 		    						</div>
 		    						<p>Tanggal Keberangkatan : 10 Mei 2021 - 21 Mei 2021</p>
-		    						<p class="days"><span>10 hari</span></p>
+		    						<p class="days"><span>{{ $tour["durasi"] }} Hari</span></p>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> Petra Jordan</span>
-		    							<span class="ml-auto"><a href="detailpaket">Discover</a></span>
+		    							<span><i class="icon-map-o"></i> {{ $tour["kota"] }}</span>
+		    							<span class="ml-auto" id="{{ $tour["id"] }}"><a href="detailpaket">Discover</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
-		    			</div>
+						</div>
+						@endforeach
 		    			<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
 		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/paket.jpg);">
