@@ -100,7 +100,6 @@
                       </a>
                     <ul class="sub">
                       <li><a class="{{ (url()->current() == url("/admin/laporan")) ? 'active' : '' }}" href="/admin/laporan">Laporan Penjualan</a></li>
-                      <li><a class="{{ (url()->current() == url("/admin/laporanlaba")) ? 'active' : '' }}" href="/admin/laporanlaba">Laporan Laba Rugi</a></li>
                     </ul>
                   </li>
                   <li class="sub-menu">
