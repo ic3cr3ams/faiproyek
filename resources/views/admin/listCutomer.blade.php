@@ -17,6 +17,7 @@
                     <th>Jumlah Peserta</th>
                     <th>Paket</th>
                     <th>Total Harga</th>
+                    <th>Status Pembayaran</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -28,6 +29,7 @@
                     <td class="hidden-phone">Lorem Ipsum dolor</td>
                     <td>12000.00$ </td>
                     <td>12000.00$ </td>
+                    <td style="background-color: rgb(255, 136, 136);color:black;">Pending</td>
                     <td>
                       <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
                       <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>

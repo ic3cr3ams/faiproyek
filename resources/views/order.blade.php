@@ -165,7 +165,7 @@
 						  <div class="text">
 							<div class="meta">
 								<h2 style="color: red;">USD 2.925</h2>
-								<button type="submit" class="btn btn-warning" name="lanjut"><a href="checkout">Selanjutnya ></a></button>
+								<button type="submit" class="btn btn-warning" name="lanjut"><a href="checout">Selanjutnya ></a></button>
 							</div>
 				  </div>
 				</div>
