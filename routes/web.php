@@ -3,7 +3,9 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\paketController;
+use App\Http\Controllers\pesawatController;
 use App\Http\Controllers\SendEmailController;
+use App\Model\countries;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -130,10 +132,14 @@ Route::middleware("authAdmin")->group(function(){
         Route::get('listPesawat', function () {
             return view('admin/listPesawat');
         });
+
         Route::get('tambahPesawat', function () {
-            return view('admin/tambahPesawat');
+            $datanegara=countries::all();
+            return view('admin/tambahPesawat',["datanegara"=>$datanegara]);
         });
-        Route::get('ditPesawat', function () {
+        Route::get('/ajaxnegaraasal/{param}','pesawatController@ajaxnegaraasal');
+        Route::get('/ajaxnegaratujuan/{param}','pesawatController@ajaxnegaratujuan');
+        Route::get('editPesawat', function () {
             return view('admin/editPesawat');
         });
         Route::get('flot_chart', function () {

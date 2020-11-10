@@ -1,52 +1,52 @@
 @extends('admin/MasterAdmin')
 @section('body')
 <section id="main-content">
-      <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>List Pesawat</h3>
-        <div class="row">
-          <!-- /col-md-12 -->
-        </div>
-        <!-- row -->
-        <div class="row mt">
-          <div class="col-md-12">
-            <div class="content-panel">
-              <table class="table table-striped table-advance table-hover">
-                <thead>
-                  <tr>
-                    <th>Nama Maskapai</th>
-                    <th>Dari</th>
-                    <th>Tujuan</th>
-                    <th>Jam</th>
-                    <th>Transit Berapa Kali</th>
-                    <th>Harga</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">Nama Paket</a>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>12000.00$ </td>
-                    <td>12000.00$ </td>
-                    <td>
-                      <button class="btn btn-info btn-xs"><a href="editPesawat"><i class="fa fa-pencil"></i> Edit </a></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i>List Pesawat</h3>
+            <div class="row">
+            <!-- /col-md-12 -->
             </div>
-            <div style="padding:10px;margin-left:900px;">
-              <button type="submit" class="btn btn-success"><a href="tambahPesawat">Tambah Pesawat</a></button>
+            <!-- row -->
+            <div class="row mt">
+                <div class="col-md-12">
+                    <div class="content-panel">
+                        <table class="table table-striped table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nama Maskapai</th>
+                                    <th>Dari</th>
+                                    <th>Tujuan</th>
+                                    <th>Jam</th>
+                                    <th>Transit Berapa Kali</th>
+                                    <th>Harga</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="basic_table.html#">Nama Paket</a>
+                                    </td>
+                                    <td class="hidden-phone">Lorem Ipsum dolor</td>
+                                    <td>12000.00$ </td>
+                                    <td>12000.00$ </td>
+                                    <td>
+                                        <button class="btn btn-info btn-xs"><a href="editPesawat"><i class="fa fa-pencil"></i> Edit </a></button>
+                                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding:10px;margin-left:900px;">
+                        <a href="/admin/tambahPesawat"><button type="submit" class="btn btn-success">Tambah Pesawat</button></a>
+                    </div>
+                    <!-- /content-panel -->
+                </div>
+            <!-- /col-md-12 -->
             </div>
-            <!-- /content-panel -->
-          </div>
-          <!-- /col-md-12 -->
-        </div>
-        <!-- /row -->
-      </section>
+            <!-- /row -->
+        </section>
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
