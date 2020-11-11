@@ -33,66 +33,12 @@
 				  </div>
           		<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
 					  <h1><b>Jerusalem Blessing Holyland Petra</b></h1>
-					  <div class="d-md-flex mt-5 mb-5">
+					  <div>
 						<ul>
-							<h6>Hari 01/ 10 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 02/ 11 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 03/ 12 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 04/ 13 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 05/ 14 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 06/ 15 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-				  			<br/>
+							<h6>Deskripsi</h6>
+							<p>date awal - date akhir</p>
+							<p>Nama Tour Guide</p>
 						</ul>
-						<ul class="ml-md-5">
-							
-							<h6>Hari 07/ 16 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 08/ 17 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 09/ 18 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 10/ 19 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<br/>
-							<h6>Hari 11/ 20 Mei'21</h6>
-							<h2>Jakarta - AMMAN</h2>
-							<p>3 jam sebelum keberangkatan, berkumpul di Bandata Soekarno Hatta Terminal Keberangkatan Internasional untuk Persiapan penerbangan menuju Amman Jordan</p>
-							<h6><b>Daftar Hotel :</b></h6>
-								<ul>
-								<li>DEAD SEA : DEAD SEA SPA HOTEL / Setara</li>
-								<li>AMMAN : AYASS / Setara</li>
-								<li>NAZARETH : ORIENT PALACE / Setara</li>
-								<li>BETLEHEM : ORIENT PALACE / Setara</li>
-								<li>St.CATHERINE : MORGENLAND / Setara</li>
-								<li>CAIRO : LE MERIDIEN / Setara</li>
-								</ul>
-						</ul>
-						
-						
 					  </div>
 				  </div>
 				  <div class="container">
@@ -156,7 +102,7 @@
 	  
 									<div class="card">
 									  <div class="card-header">
-												<a class="card-link" data-toggle="collapse"  href="#menutwo" aria-expanded="false" aria-controls="menutwo">Apa saja syarat untuk melakukan pemesanan? <span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
+												<a class="card-link" data-toggle="collapse"  href="#menutwo" aria-expanded="false" aria-controls="menutwo"><span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
 									  </div>
 									  <div id="menutwo" class="collapse">
 										<div class="card-body">
