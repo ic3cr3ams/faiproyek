@@ -21,45 +21,7 @@
 			<div id="accordion">
 				<div class="row">
 					<div>
-						<div class="card">
-						<div class="card-header">
-								  <a class="card-link" data-toggle="collapse"  href="#menuone" aria-expanded="true" aria-controls="menuone">Data Pemesan<span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
-						</div>
-						<div id="menuone" class="collapse show">
-						  <div class="card-body">
-							  <form action="/action_page.php">
-								  <div class="row">
-									  <div class="col">
-										  <select name="titel" id="titel"class="custom-select mb-3" style="height: 50px;">
-										  <option value="Tuan">Tuan</option>
-										  <option value="Nyonya">Nyonya</option>
-										  <option value="Nona">Nona</option>
-										  </select>
-									  </div>
-									  <div class="col">
-										  <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan" name="namadepan">
-									  </div>
-									  <div class="col">
-										  <input type="text" class="form-control" placeholder="Nama Belakang" name="namabelakang">
-									  </div>
-									  <div class="col">
-										<input type="text" class="form-control" placeholder="No.Paspor" name="noPaspor">
-									</div>
-								  </div>
-								  <div class="row">
-									  <div class="col">
-										  <input type="number" class="form-control" id="notelp" placeholder="Nomor Telepon / HP" name="notelp">
-									  </div>
-									  <div class="col">
-										  <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-									  </div>
-								  </div>
-								</form>
-						  </div>
-						</div>
-					  </div>
 					<div>
-						<br/><br/><br/>
 						<div class="card">
 						<div class="card-header">
 								  <a class="card-link" data-toggle="collapse"  href="#menu4" aria-expanded="false" aria-controls="menu4">Data Tamu<span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
@@ -70,18 +32,7 @@
 									  @csrf
 									  <div class="row"></div>
 										  <h6>Peserta 1</h6>
-										  <div class="col">
-											  <input type="checkbox" id="datasama" name="datasama" value="datasama">
-											  <label for="datasama">Sama dengan pemesan</label>
-										  </div>
 									  <div class="row">
-										  <div class="col">
-											  <select name="titel" id="titel"class="custom-select mb-3" style="height: 50px;">
-											  <option value="Tuan">Tuan</option>
-											  <option value="Nyonya">Nyonya</option>
-											  <option value="Nona">Nona</option>
-											  </select>
-										  </div>
 										  <div class="col">
 											  <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan" name="namadepan">
 										  </div>
@@ -89,23 +40,87 @@
 											  <input type="text" class="form-control" placeholder="Nama Belakang" name="namabelakang">
 										  </div>
 									  </div>
+									  <br/>
+									  <div class="row">
+										  <div class="col">
+											<input type="email" class="form-control" id="email" placeholder="Email" name="email">
+										  </div>
+										  <div class="col">
+											<input type="number" class="form-control" id="notelp" placeholder="No.Telp" name="notelp">
+										  </div>
+										  <div class="col">
+											<input type="text" class="form-control" id="nopaspor" placeholder="No.Paspor" name="nopaspor">
+										  </div>
+									  </div>
+									  <br/>
 									  <div class="row"></div>
 										  <h6>Peserta 2</h6>
 									  <div class="row">
 										  <div class="col">
-											  <select name="titel" id="titel"class="custom-select mb-3" style="height: 50px;">
-											  <option value="Tuan">Tuan</option>
-											  <option value="Nyonya">Nyonya</option>
-											  <option value="Nona">Nona</option>
-											  </select>
-										  </div>
-										  <div class="col">
 											  <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan" name="namadepan">
 										  </div>
 										  <div class="col">
 											  <input type="text" class="form-control" placeholder="Nama Belakang" name="namabelakang">
 										  </div>
 									  </div>
+									  <br/>
+									  <div class="row">
+										  <div class="col">
+											<input type="email" class="form-control" id="email" placeholder="Email" name="email">
+										  </div>
+										  <div class="col">
+											<input type="number" class="form-control" id="notelp" placeholder="No.Telp" name="notelp">
+										  </div>
+										  <div class="col">
+											<input type="text" class="form-control" id="nopaspor" placeholder="No.Paspor" name="nopaspor">
+										  </div>
+									  </div>
+									  <br/>
+									  <div class="row"></div>
+									  <h6>Peserta 3</h6>
+								  <div class="row">
+									  <div class="col">
+										  <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan" name="namadepan">
+									  </div>
+									  <div class="col">
+										  <input type="text" class="form-control" placeholder="Nama Belakang" name="namabelakang">
+									  </div>
+								  </div>
+								  <br/>
+								  <div class="row">
+									  <div class="col">
+										<input type="email" class="form-control" id="email" placeholder="Email" name="email">
+									  </div>
+									  <div class="col">
+										<input type="number" class="form-control" id="notelp" placeholder="No.Telp" name="notelp">
+									  </div>
+									  <div class="col">
+										<input type="text" class="form-control" id="nopaspor" placeholder="No.Paspor" name="nopaspor">
+									  </div>
+								  </div>
+								  <br/>
+								  <div class="row"></div>
+								  <h6>Peserta 4</h6>
+							  <div class="row">
+								  <div class="col">
+									  <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan" name="namadepan">
+								  </div>
+								  <div class="col">
+									  <input type="text" class="form-control" placeholder="Nama Belakang" name="namabelakang">
+								  </div>
+							  </div>
+							  <br/>
+							  <div class="row">
+								  <div class="col">
+									<input type="email" class="form-control" id="email" placeholder="Email" name="email">
+								  </div>
+								  <div class="col">
+									<input type="number" class="form-control" id="notelp" placeholder="No.Telp" name="notelp">
+								  </div>
+								  <div class="col">
+									<input type="text" class="form-control" id="nopaspor" placeholder="No.Paspor" name="nopaspor">
+								  </div>
+							  </div>
 									</form>
 						  </div>
 						</div>

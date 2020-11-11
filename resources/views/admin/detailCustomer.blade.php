@@ -20,10 +20,11 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @php
+                  $like =DB::table('htrans');
+                  @endphp
                   <tr>
-                    <td>
-                      <a href="basic_table.html#">Nama Paket</a>
-                    </td>
+                    <td>Nama Paket</td>
                     <td class="hidden-phone">Lorem Ipsum dolor</td>
                     <td>12000.00$ </td>
                     <td>12000.00$ </td>
@@ -36,7 +37,7 @@
           <!-- /col-md-12 -->
         </div>
         <div>
-            <button class="btn btn-info">Kembali</button>
+            <button class="btn btn-info"><a href="listCutomer">Kembali</a></button>
         </div>
         <!-- /row -->
       </section>

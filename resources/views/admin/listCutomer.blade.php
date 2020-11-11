@@ -7,6 +7,15 @@
           <!-- /col-md-12 -->
         </div>
         <!-- row -->
+        <div style="margin-left: 600px;">
+          <div class="form-group">
+              <div>
+                  <div class="input-group">
+                      <input type="text" name="kapasitas"class="form-control" required><span class="input-group-addon">Search</span>
+                  </div>
+              </div>
+          </div> 
+        </div>
         <div class="row mt">
           <div class="col-md-12">
             <div class="content-panel">
@@ -14,7 +23,6 @@
                 <thead>
                   <tr>
                     <th>Nama Customer</th>
-                    <th>Jumlah Peserta</th>
                     <th>Paket</th>
                     <th>Total Harga</th>
                     <th>Status Pembayaran</th>
@@ -24,10 +32,10 @@
                 <tbody>
                   <tr>
                     <td>
-                      <a href="basic_table.html#">Nama Paket</a>
                     </td>
                     <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>12000.00$ </td>
+                    <td>
+                    </td>
                     <td>12000.00$ </td>
                     <td style="background-color: rgb(255, 136, 136);color:black;">Pending</td>
                     <td>
