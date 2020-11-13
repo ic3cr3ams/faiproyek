@@ -7,6 +7,7 @@ use App\Model\dpaket;
 use App\Model\hotel;
 use App\Model\paket_tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
@@ -42,7 +43,12 @@ class paketController extends Controller
     public function listTour()
     {
         $dataTour=paket_tour::all();
+        // $param["dataTour"] = DB::table('paket_tour as pt')
+        // ->join('dpaket2 as dp','pt.id','=','dp.id_paket')
+        // ->select('pt.nama','pt.durasi','pt.kota','pt.gambar','dp.harga_jual')
+        // ->get();
         return view('/paket',["dataTour"=>$dataTour]);
+        // return view('/paket')->with($param);
     }
     public function editPaketView($id){
         $datapaket=paket_tour::findOrFail($id);
