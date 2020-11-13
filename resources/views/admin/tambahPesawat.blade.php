@@ -2,75 +2,76 @@
 @section('body')
     <section id="main-content">
         <section class="wrapper">
-            <h3><i class="fa fa-angle-right"></i>Tambah Pesawat</h3>
-            <div style="margin-left:900px;">
-                <button class="btn btn-danger" type="submit">Batal</button>
-                <button class="btn btn-success" type="submit">Tambahkan Pesawat</button>
-            </div>
+            <h3><i class="fa fa-angle-right"></i>Tambah Pesawat</h3>           
             <div class="row mt">
-                <div class="col-lg-12">
-                    <div class="form-panel">
-                    <form class="form-horizontal style-form" method="POST" action="addPaket">
-                        @csrf
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Nama Maskapai</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control">
-                        </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Asal Negara</label>
+                <form class="form-horizontal style-form" method="POST" action="addPaket">
+                    @csrf
+                    <div class="col-lg-12">
+                        <div class="form-panel">
+                                                
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Nama Maskapai</label>
                             <div class="col-sm-4">
-                                <select class="form-control" name="asalnegara" id="asalnegara" required>
-                                    @foreach ($datanegara as $item=>$values)
-                                        <option value="{{$values->id}}">{{$values->name}}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Bandara Asal :</label>
-                            <div class="col-sm-4">
-                                <select class="form-control"  name="asalbandara" id="asalbandara" required>
-                                    
-                                </select>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Tujuan Negara</label>
-                            <div class="col-sm-4">
-                                <select class="form-control" name="tujuannegara" id="tujuannegara" required>
-                                    @foreach ($datanegara as $item=>$values)
-                                        <option value="{{$values->id}}">{{$values->name}}</option>
-                                    @endforeach
-                                </select>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Asal Negara</label>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="asalnegara" id="asalnegara" required>
+                                        @foreach ($datanegara as $item=>$values)
+                                            <option value="{{$values->id}}">{{$values->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Bandara Tujuan :</label>
-                            <div class="col-sm-4">
-                                <select class="form-control"  name="tujuanbandara" id="tujuanbandara" required>
-                                    
-                                </select>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Bandara Asal :</label>
+                                <div class="col-sm-4">
+                                    <select class="form-control"  name="asalbandara" id="asalbandara" required>
+                                        
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Jam Keberangkatan</label>
-                            <div class="col-sm-4">
-                            <input type="Time" class="form-control">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Tujuan Negara</label>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="tujuannegara" id="tujuannegara" required>
+                                        @foreach ($datanegara as $item=>$values)
+                                            <option value="{{$values->id}}">{{$values->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Harga</label>
-                            <div class="col-sm-4">
-                            <input type="Number" class="form-control">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Bandara Tujuan :</label>
+                                <div class="col-sm-4">
+                                    <select class="form-control"  name="tujuanbandara" id="tujuanbandara" required>
+                                        
+                                    </select>
+                                </div>
                             </div>
+                            {{-- <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Jam Keberangkatan</label>
+                                <div class="col-sm-4">
+                                <input type="Time" class="form-control">
+                                </div>
+                            </div> --}}
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Harga</label>
+                                <div class="col-sm-4">
+                                <input type="Number" class="form-control">
+                                </div>
+                            </div>                       
                         </div>
-                    </form>
                     </div>
-                </div>
+                    <div style="margin-left:800px;">
+                        <button class="btn btn-danger" type="submit">Batal</button>
+                        <button class="btn btn-success" type="submit">Tambahkan Pesawat</button>
+                    </div>
+                </form>
             </div>
-            <div style="margin:10px;">
+            {{-- <div style="margin:10px;">
                 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Transit?</button>
                 <div id="demo" class="collapse">
                     <form>
@@ -96,7 +97,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> --}}
         </section>
     </section>
     <script src="{{asset('asset/admin/lib/jquery/jquery.min.js')}}"></script>

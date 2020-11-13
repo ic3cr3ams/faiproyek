@@ -48,11 +48,10 @@
         <!--logo start-->
             <a href="index.html" class="logo"><b>Pray &<span>Go</span></b></a>
             <!--logo end-->
-            <div class="top-menu">
-                <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="/admin/logout">Logout</a></li>
-                </ul>
-            </div>
+            
+            <ul class="nav pull-right top-menu">
+                <a class="btn btn-danger btn-sm mt-3" href="/admin/logout">Logout</a>
+            </ul>
         </header>
         <!--header end-->
         <!-- **********************************************************************************************************************************************************
