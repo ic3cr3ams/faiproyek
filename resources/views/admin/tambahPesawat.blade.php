@@ -2,18 +2,34 @@
 @section('body')
     <section id="main-content">
         <section class="wrapper">
-            <h3><i class="fa fa-angle-right"></i>Tambah Pesawat</h3>           
+            <h3><i class="fa fa-angle-right"></i>Tambah Pesawat</h3>     
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>           
+            @endif      
             <div class="row mt">
-                <form class="form-horizontal style-form" method="POST" action="addPaket">
+                <form class="form-horizontal style-form" method="POST" action="/admin/addPesawat">
                     @csrf
                     <div class="col-lg-12">
                         <div class="form-panel">
                                                 
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Nama Maskapai</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control">
-                            </div>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="maskapai" id="maksapai" required>
+                                        @foreach ($datamaskapai as $item=>$values)
+                                            <option value="{{$values->id}}">{{$values->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Asal Negara</label>
@@ -60,13 +76,31 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Harga</label>
                                 <div class="col-sm-4">
-                                <input type="Number" class="form-control">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp</span>
+                                        </div>
+                                        <input type="Number" class="form-control" name='harga' min=0 step="1000" value="{{old("harga")}}">
+                                    </div>
+                                    
+                                </div>
+                            </div>                       
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Durasi</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <input type="Number" class="form-control" name='durasi' min=1 value="{{old("durasi")}}">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Jam
+                                        </div>
+                                    </div>
+                                
                                 </div>
                             </div>                       
                         </div>
                     </div>
                     <div style="margin-left:800px;">
-                        <button class="btn btn-danger" type="submit">Batal</button>
+                        <a href="/admin/listPesawat"><button class="btn btn-danger" type="button">Batal</button></a>
                         <button class="btn btn-success" type="submit">Tambahkan Pesawat</button>
                     </div>
                 </form>

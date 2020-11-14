@@ -6,6 +6,7 @@ use App\Http\Controllers\paketController;
 use App\Http\Controllers\pesawatController;
 use App\Http\Controllers\SendEmailController;
 use App\Model\countries;
+use App\Model\maskapai;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -118,7 +119,8 @@ Route::middleware("authAdmin")->group(function(){
         });
         Route::get('listHotel','hotelController@listHotel')->name('listHotel');
         Route::get('tambahHotel', function () {
-            return view('admin/tambahHotel');
+            $datanegara=countries::all();
+            return view('admin/tambahHotel',["datanegara"=>$datanegara]);
         });
     
         Route::post('/editHotel',"hotelController@editHotel");
@@ -129,14 +131,15 @@ Route::middleware("authAdmin")->group(function(){
         Route::get("dHotel/{param}","hotelController@detailHotel");
     
         Route::get('deleteHotel/{param}',"hotelController@deleteHotel");
-        Route::get('listPesawat', function () {
-            return view('admin/listPesawat');
-        });
+        Route::get('listPesawat','pesawatController@listFlight')->name('listPesawat');
 
         Route::get('tambahPesawat', function () {
             $datanegara=countries::all();
-            return view('admin/tambahPesawat',["datanegara"=>$datanegara]);
+            $datamaskapai=maskapai::all()->sortBy('nama');
+            return view('admin/tambahPesawat',["datanegara"=>$datanegara,"datamaskapai"=>$datamaskapai]);
         });
+        Route::post('/addPesawat', 'pesawatController@tambahPesawat');
+        Route::get('deletePesawat/{param}',"pesawatController@deleteFlight");
         Route::get('/ajaxnegaraasal/{param}','pesawatController@ajaxnegaraasal');
         Route::get('/ajaxnegaratujuan/{param}','pesawatController@ajaxnegaratujuan');
         Route::get('editPesawat', function () {

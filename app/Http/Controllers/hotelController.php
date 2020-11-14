@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\countries;
 use App\Model\dhotel;
 use App\Model\hotel;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class hotelController extends Controller
     //
     public function listHotel(){
         $dataHotel=hotel::all();
-        return view('admin.listHotel',["dataHotel"=>$dataHotel]);
+        $datanegara=countries::all();
+        return view('admin.listHotel',["dataHotel"=>$dataHotel,"datanegara"=>$datanegara]);
     }
     public function addHotel(Request $request){
         $validation=$request->validate([
@@ -27,6 +29,7 @@ class hotelController extends Controller
             "alamat"=>$request->alamat,
             "kota"=>$request->kota,
             "negara"=>$request->negara,
+            "harga"=>$request->harga
         ]);
         return redirect()->route('listHotel')->with('success',"Berhasil Menambah Hotel");
     }
@@ -38,7 +41,14 @@ class hotelController extends Controller
     }
     public function editHotelView($id){
         $hotel=hotel::findOrFail($id);
-        return view('admin.tambahHotel',["edit"=>true,"datahotel"=>$hotel]);
+        $datanegara=countries::all();
+        foreach($datanegara as $items){
+            if($items->id==$hotel->negara){
+                $idnegara=$items->id;
+                $namanegara=$items->name;
+            }
+        }
+        return view('admin.tambahHotel',["edit"=>true,"datahotel"=>$hotel,"idnegara"=>$idnegara,"namanegara"=>$namanegara]);
 
     }
     public function editHotel(Request $request){
@@ -46,6 +56,8 @@ class hotelController extends Controller
         
         $hotel->name=$request->nama;
         $hotel->alamat=$request->alamat;
+        $hotel->kota=$request->kota;
+        $hotel->harga=$request->harga;
         $hotel->save();
         return redirect()->route('listHotel')->with('success',"Berhasil Edit Hotel");
     }

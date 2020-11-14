@@ -37,7 +37,11 @@
                             <div class="form-group ">
                                 <div class="col-sm-4">
                                     <div class="input-group">
-                                        <input type="number" name="kapasitas" id="" min=0 max=5 class="form-control" required><span class="input-group-addon">Orang</span>
+                                        <input type="number" name="kapasitas" id="" min=0 max=5 class="form-control" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Orang</span>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div> 
@@ -46,7 +50,10 @@
                             <div class="form-group ">
                                 <div class="col-sm-4">
                                     <div class="input-group">
-                                        <span class="input-group-addon">Rp</span><input type="number" name="harga" id="" min=0 class="form-control" required>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp</span>
+                                        </div>
+                                       <input type="number" name="harga" id="" min=0 class="form-control" required>
                                     </div>
                                 </div>
                             </div>    

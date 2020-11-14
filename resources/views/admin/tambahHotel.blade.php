@@ -36,17 +36,31 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Kota</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="kota" value="{{$datahotel->kota}}" disabled>
+                                    <input type="text" class="form-control" name="kota" value="{{$datahotel->kota}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Negara</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="negara" value="{{$datahotel->negara}}" disabled>
+                                    <select class="form-control" name="negara" id="negara" required disabled>                                      
+                                            <option value="{{$idnegara}}">{{$namanegara}}</option>
+                                    </select>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Harga</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp</span>
+                                        </div>
+                                        <input type="number" class="form-control" name="harga" min=0 step="1000" value="{{$datahotel->harga}}" >    
+                                    </div>                                
+                                </div>
+                            </div>
+
                             <div style="margin:10px;">
-                                <a href="listHotel"><button class="btn btn-danger" type="button">Batal</button></a>
+                                <a href="/admin/listHotel"><button class="btn btn-danger" type="button">Batal</button></a>
                                 <button class="btn btn-success" type="submit">Edit Hotel</button>                                    
                             </div>
                         </form>
@@ -74,7 +88,22 @@
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Negara</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="negara" value="{{old('negara')}}">
+                                <select class="form-control" name="negara" id="negara" required>
+                                    @foreach ($datanegara as $item=>$values)
+                                        <option value="{{$values->id}}">{{$values->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Harga</label>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Rp</span>
+                                    </div>
+                                    <input type="number" class="form-control" name="harga" min=0 step="1000" value="{{old('harga')}}" >    
+                                </div>                                
                             </div>
                         </div>
                         {{-- <div class="form-group">
@@ -94,7 +123,7 @@
                             </div>
                         </div> --}}
                         <div style="margin:10px;">
-                            <a href="listHotel"><button class="btn btn-danger" type="button">Batal</button></a>
+                            <a href="/admin/listHotel"><button class="btn btn-danger" type="button">Batal</button></a>
                                 <button class="btn btn-success" type="submit">Tambahkan Hotel</button>
                             
                         </div>
