@@ -94,10 +94,12 @@
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" fa fa-files-o"></i>
-                      <span>Laporan</span>
-                      </a>
+                    <a class="{{ (url()->current() == url("/admin/laporan")) ? 'active' : '' }}" href="/admin/laporan">
+                    <i class=" fa fa-users"></i>
+                    <span>Laporan Penjualan</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
                     <ul class="sub">
                       <li><a class="{{ (url()->current() == url("/admin/laporan")) ? 'active' : '' }}" href="/admin/laporan">Laporan Penjualan</a></li>
                     </ul>

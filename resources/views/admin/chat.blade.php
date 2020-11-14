@@ -13,6 +13,7 @@
             @elseif(Session::get('ctr')=='0' &&Session::get('id')!='')
                 <h1>Tidak ada pesan dengan {{Session::get('nama')}}</h1>
             @else
+            <h1>{{Session::get('nama')}}</h1>
                 @foreach (Session::get('isi') as $item=>$value)
                     <div class="group-rom">
                         <div class="first-part">{{$value->pengirim}}</div>

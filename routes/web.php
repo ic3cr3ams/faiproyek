@@ -97,6 +97,7 @@ Route::get('/', function () {
 //Punya Admin
 Route::middleware("authAdmin")->group(function(){
     Route::prefix('admin')->group(function () {
+        Route::get('lihatlaporan','laporanController@lihat');
         Route::post('send','ControllerChat@send');
         Route::post('pilihcustomer','ControllerChat@pilih');
 
