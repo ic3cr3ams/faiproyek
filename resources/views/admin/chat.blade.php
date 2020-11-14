@@ -8,45 +8,94 @@
             <div class="chat-room-head">
               <h3>Chat Room</h3>
             </div>
-            @if (Session::get('id')=='')
-                <h1>Pilih Customer</h1>
-            @elseif(Session::get('ctr')=='0' &&Session::get('id')!='')
-                <h1>Tidak ada pesan dengan {{Session::get('nama')}}</h1>
-            @else
-                @foreach (Session::get('isi') as $item=>$value)
-                    <div class="group-rom">
-                        <div class="first-part">{{$value->pengirim}}</div>
-                        <div class="second-part">{{$value->isi}}</div>
-                    </div>
-                @endforeach
-            @endif
-            {{-- KIRIM PESAN DI SINI --}}
-            <form action="send" method="POST">
-                @csrf
-                    <div class="chat-txt">
-                      <input type="text" class="form-control" name="pesan">
-                    </div>
-                    <button class="btn btn-theme" type="submit">Send</button>
-            </form>
+            <div class="group-rom">
+              <div class="first-part odd">Sam Soffes</div>
+              <div class="second-part">Hi Mark, have a minute?</div>
+              <div class="third-part">12:30</div>
+            </div>
+            <div class="group-rom">
+              <div class="first-part">Mark Simmons</div>
+              <div class="second-part">Of course Sam, what you need?</div>
+              <div class="third-part">12:31</div>
+            </div>
+            <div class="group-rom">
+              <div class="first-part odd">Sam Soffes</div>
+              <div class="second-part">I want you examine the new product</div>
+              <div class="third-part">12:32</div>
+            </div>
+            <div class="group-rom">
+              <div class="first-part">Mark Simmons</div>
+              <div class="second-part">Ok, send me the pic</div>
+              <div class="third-part">12:32</div>
+            </div>
+            <div class="group-rom">
+              <div class="first-part odd">Sam Soffes</div>
+              <div class="second-part">
+                <a href="#">product.jpg</a> <span class="text-muted">35.4KB</span>
+                <p><img class="img-responsive" src="img/product.jpg" alt=""></p>
+              </div>
+              <div class="third-part">12:32</div>
+            </div>
+            <div class="group-rom">
+              <div class="first-part">Mark Simmons</div>
+              <div class="second-part">Fantastic job, love it :)</div>
+              <div class="third-part">12:32</div>
+            </div>
+            <div class="group-rom last-group">
+              <div class="first-part odd">Sam Soffes</div>
+              <div class="second-part">Thanks!!</div>
+              <div class="third-part">12:33</div>
+            </div>
+            <footer>
+              <div class="chat-txt">
+                <input type="text" class="form-control">
+              </div>
+              <div class="btn-group hidden-sm hidden-xs">
+                <button type="button" class="btn btn-white"><i class=" fa fa-paperclip"></i></button>
+              </div>
+              <button class="btn btn-theme">Send</button>
+            </footer>
           </aside>
           <aside class="right-side">
             <div class="invite-row">
               <h4 class="pull-left">Chat Customer</h4>
             </div>
             <ul class="chat-available-user">
-                @php
-                    $user = DB::table('users')->get()
-                @endphp
-                @foreach ($user as $item=> $value)
-                    <form action="pilihcustomer" method="post">
-                        @csrf
-                    <li>
-                        <input type="hidden" name="id" value= "{{$value->id}}">
-                        <input type="hidden" name="nama" value= "&nbsp;{{$value->nama}}">
-                        <button type="submit" >{{$value->nama}}</button>
-                    </li>
-                    </form>
-                @endforeach
+              <li>
+                <a href="chat_room.html">
+                  <img class="img-circle" src="img/friends/fr-02.jpg" width="32">
+                  Paul Brown
+                  <span class="text-muted">1h:02m</span>
+                  </a>
+              </li>
+              <li>
+                <a href="chat_room.html">
+                  <img class="img-circle" src="img/friends/fr-05.jpg" width="32">
+                  David Duncan
+                  <span class="text-muted">1h:08m</span>
+                  </a>
+              </li>
+              <li>
+                <a href="chat_room.html">
+                  <img class="img-circle" src="img/friends/fr-07.jpg" width="32">
+                  Laura Smith
+                  <span class="text-muted">1h:10m</span>
+                  </a>
+              </li>
+              <li>
+                <a href="chat_room.html">
+                  <img class="img-circle" src="img/friends/fr-08.jpg" width="32">
+                  Julia Schultz
+                  <span class="text-muted">3h:00m</span>
+                  </a>
+              </li>
+              <li>
+                <a href="chat_room.html">
+                  <img class="img-circle" src="img/friends/fr-01.jpg" width="32">
+                  Frank Arias
+                  <span class="text-muted">4h:22m</span>
+                  </a>
+              </li>
             </ul>
           </aside>
         </div>

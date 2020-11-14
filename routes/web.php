@@ -94,21 +94,17 @@ Route::get('/', function () {
     return view('index');
 })->name('homepage');
 
-//Punya Admin
+//Admin
 Route::middleware("authAdmin")->group(function(){
     Route::prefix('admin')->group(function () {
-        Route::post('send','ControllerChat@send');
-        Route::post('pilihcustomer','ControllerChat@pilih');
-
-        // Oke !
         Route::view('index','admin.index')->name('indexadmin');
-
+    
         Route::get('paket','paketController@listPaket' )->name('listpaket');
-
+    
         Route::get('tambahPaket', function () {
             return view('admin.tambahPaket2');
         });
-        Route::post('addPaket','paketController@addPaket');
+        Route::post('addPaket','paketController@addPaket'); 
         Route::post('/addHotel','hotelController@addHotel');
         Route::get('/editPaket/{param}','paketController@editPaketView');
         Route::get('/detailPaket/{param}','paketController@detailPaketView');
@@ -126,14 +122,14 @@ Route::middleware("authAdmin")->group(function(){
             $datanegara=countries::all();
             return view('admin/tambahHotel',["datanegara"=>$datanegara]);
         });
-
+    
         Route::post('/editHotel',"hotelController@editHotel");
         Route::get('editHotel/{param}',"hotelController@editHotelView");
         Route::get("detailHotel/{param}","hotelController@detailHotel");
         Route::get("tambahdetailHotel/{param}","hotelController@tambahdetailHotelview");
         Route::post("tambahdetailHotel","hotelController@tambahdetailHotel");
         Route::get("dHotel/{param}","hotelController@detailHotel");
-
+    
         Route::get('deleteHotel/{param}',"hotelController@deleteHotel");
         Route::get('listPesawat','pesawatController@listFlight')->name('listPesawat');
 
@@ -164,7 +160,7 @@ Route::middleware("authAdmin")->group(function(){
         Route::get('laporanlaba', function () {
             return view('admin/laporanlaba');
         });
-
+        
         Route::get('chat', function () {
             return view('admin/chat');
         });

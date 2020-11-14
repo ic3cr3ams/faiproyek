@@ -10,10 +10,11 @@ class adminController extends Controller
 {
     //
     public function logout(){
-        if(Session::has('adminlogin'))Session::forget('adminlogin');Session::forget('id');Session::forget('nama');Session::forget('isi');Session::forget('ctr');
-        return redirect()->route('homepage');
+        if(Session::has('adminlogin'))Session::forget('adminlogin');
+        return redirect()->route('homepage');        
     }
 
+    
 
 
 }

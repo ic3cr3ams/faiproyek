@@ -48,7 +48,7 @@
         <!--logo start-->
             <a href="index.html" class="logo"><b>Pray &<span>Go</span></b></a>
             <!--logo end-->
-
+            
             <ul class="nav pull-right top-menu">
                 <a class="btn btn-danger btn-sm mt-3" href="/admin/logout">Logout</a>
             </ul>
@@ -62,7 +62,7 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                <h5 class="centered">Welcome,Admin</h5>
+                <h5 class="centered">Welcome,Admin</h5>     
                 {{-- <li class="mt">
                     <a class="{{ (url()->current() == url("/admin/index")) ? 'active' : '' }}" href="index">
                     <i class="fa fa-dashboard"></i>
@@ -111,7 +111,7 @@
                 <!-- sidebar menu end-->
             </div>
         </aside>
-        @yield('body')
+        @yield('body')  
         <footer class="site-footer">
             <div class="text-center">
                 <p>
