@@ -5,7 +5,10 @@ use App\Model\dtrans;
 use App\Model\htrans;
 use App\Model\hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+
+use Charts;
 
 class laporanController extends Controller
 {
@@ -16,12 +19,14 @@ class laporanController extends Controller
         // $h->htrans_date=date('Y-m-d');
         // $h->htrans_total=9000;
         // $h->save();
-        $thn = $r->tahun;
-        $bln = $r->bulan;
-        if ($thn!="-") {
-
-        }
-        Session::put('laporan',htrans::where('')->get());
+        $awal = $r->awal;
+        $akhir = $r->akhir;
+        $data =DB::table('htrans')->whereBetween('htrans.htrans_date',[$awal,$akhir])->join('dtrans','dtrans_id','=','htrans_id_order')->join('hotel','dtrans_hotel','=','hotel.id')->join('paket_tour','paket_tour.id','=',"dtrans_tour")->join('dpaket2','dpaket2.id_paket','paket_tour.id')->distinct()->get(array('htrans_date','htrans_id_order','nama','hargajual'));
+        $ctr =DB::table('htrans')->whereBetween('htrans.htrans_date',[$awal,$akhir])->join('dtrans','dtrans_id','=','htrans_id_order')->join('hotel','dtrans_hotel','=','hotel.id')->join('paket_tour','paket_tour.id','=',"dtrans_tour")->distinct()->count();
+        dd($data);
+        if ($ctr>0) {
+            Session::put('laporan','ada');
+        }else Session::forget('laporan');
         return redirect()->back();
     }
 }

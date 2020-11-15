@@ -16,7 +16,9 @@
                 <!-- /pull-right -->
                 <div class="clearfix"></div>
                   <form action="lihatlaporan" action="post">
-                    <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
+<<<<<<< Updated upstream
+                    <div class="col-md-3 col-xs-8">
+                      <label>Bulan : </label>
                         <select class="form-control" name="bulan">
                           <option >-</option>
                           <option value="Januari">Januari</option>
@@ -34,23 +36,48 @@
                         </select>
                       </div>
                       <br>
-                      <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
+                      <div class="col-md-3 col-xs-8">
+                        <label>Tahun :</label>
                         <select class="form-control" name="tahun">
                             <option >-</option>
                             <option value="2019">2019</option>
                             <option value="2020">2020</option>
                             <option value="2021">2021</option>
                         </select>
-                      </div>
+                        <br>
+                        {{-- EDIT BUTTON DISINI --}}
+                        <button type="submit" class="btn btn-theme">Pilih</button>
+=======
+                    <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
+                        <input type="date" class="" name="awal">
+                        &nbsp;&nbsp; <b>To</b> &nbsp;&nbsp;
+                        <input type="date" class="" name="akhir">
+                    </div>
                       <br>
                       <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
-                        {{-- EDIT BUTTON DISINI --}}
                       <button type="submit" class="btn btn-theme">Pilih</button>
+>>>>>>> Stashed changes
                       </div>
+                      <br>
                   </form>
                   <br>
                   <br>
                 <div class="row">
+                    {{-- <form action="chart" method="POST">
+                        @csrf
+                        <select name="tipe" id="">
+                            <option value="pie">Pie Chart</option>
+                            <option value="donut">Doughnut Chart</option>
+                            <option value="area">Area Chart</option>
+                            <option value="spline">Areaspline Chart</option>
+                            <option value="pie">Pie Chart</option>
+                            <option value="geo">Geo Chart</option>
+                            <option value="persen">Percentage Chart</option>
+                        </select>
+                    </form> --}}
+                    {{-- @if (Session::get)
+
+                    @endif --}}
                 <table class="table">
                   <thead>
                     <tr>
