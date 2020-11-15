@@ -37,8 +37,10 @@ class pesawatController extends Controller
         $airportasal=airports::find($request->asalbandara);
         $negaratujuan=countries::find($request->tujuannegara);
         $airporttujuan=airports::find($request->tujuanbandara);
+        $maskapai=maskapai::find($request->maskapai);
         flight::insertGetId([
-            "maskapai"=>$request->maskapai,
+            "maskapai"=>$maskapai->id,
+            "nama_maskapai"=>$maskapai->nama,
             "asal"=>$negaraasal->name,
             "bandara_asal"=>$airportasal->name,
             "kode_bandara_asal"=>$airportasal->code,

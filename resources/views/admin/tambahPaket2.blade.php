@@ -10,10 +10,30 @@
                     <form class="form-horizontal style-form" method="POST" action="addPaket" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Nama Paket</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="nama" required>
+                            <label class="col-sm-2 col-sm-2 control-label">Nama Paket</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="nama" required>
+                            </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Asal Negara</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="asalnegara" id="asalnegara" required>
+                                    @foreach ($datanegara as $item=>$values)
+                                        <option value="{{$values->id}}">{{$values->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Tujuan Negara</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="tujuannegara" id="tujuannegara" required>
+                                    @foreach ($datanegara as $item=>$values)
+                                        <option value="{{$values->id}}">{{$values->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         {{-- <div class="form-group">
                             <label class="control-label col-md-2">Tanggal Tour</label>
@@ -30,8 +50,8 @@
                             <label class="col-sm-2 col-sm-2 control-label">Durasi Perjalanan</label>
                             <div class="col-sm-4">
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min=1 name=durasi required>
-                                    <span class="input-group-addon">Hari</span>
+                                    <input class="form-control" type="number" min=1 name=durasi id=durasi required value=1>
+                                    <div class="input-group-append"><span class="input-group-text">Hari</span></div>                                    
                                 </div>                                
                             </div>                                                       
                         </div>
@@ -42,29 +62,74 @@
                             </div>
                         </div> --}}
                         <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Kota</label>
+                            <label class="col-sm-2 col-sm-2 control-label">Pilih Penerbangan</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="kota" value="{{old('kota')}}" required>
+                                <select class="form-control" name="flight" id="flight" required>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row ml-2">
+                            <div class="form-group col-3">
+                                <label class="">Asal Bandara</label>
+                                <input type="text" class="form-control" name="asalbandara" id=asalbandara readonly >
+                            </div>
+                            <div class="form-group col-3">
+                                <label class="">Tujuan Bandara</label>
+                                <input type="text" class="form-control" name="tujuanbandara" id=tujuanbandara readonly>
+                            </div>
+                            <div class="form-group col-2">
+                                <label class="col-sm-2 col-sm-2 control-label">Durasi</label>                                
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="durasiflight" id="durasiflight" readonly>
+                                    <div class="input-group-append"><span class="input-group-text">Jam</span></div>
+                                </div>                               
+                            </div>
+                            <div class="form-group col-3">
+                                <label class="col-sm-2 col-sm-2 control-label">Harga</label>                                
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">Rp</span></div>
+                                    <input type="text" class="form-control" name="hargaflight" id="hargaflight" readonly>
+                                    
+                                </div>                               
+                            </div>
+                        </div>
+                        <div class="form-row ml-2">
+                            <div class="form-group col-6">
+                                <label >Pilih Hotel</label>
+                                <select class="form-control" name="hotel" id="hotel" required>
+                                    
+                                </select>
+                            </div>
+                            <div class="form-group col-3">
+                                <label class="col-sm-2 col-sm-2 control-label">Harga</label>                                
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">Rp</span></div>
+                                    <input type="text" class="form-control" name="hargahotel" id="hargahotel" readonly required>                                    
+                                </div>                               
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Negara</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="negara" value="{{old('negara')}}" required>
-                            </div>
+                            <label class="col-sm-2 col-sm-2 control-label">Biaya Lain Lain</label>  
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">Rp</span></div>
+                                    <input type="number" class="form-control" name="biayalain" id="biayalain" min=0 step=1000 required>                                    
+                                </div>                               
+                            </div>                                                          
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Deskripsi</label>
+                            <label class="col-sm-2 col-sm-2 control-label">Deskripsi Paket</label>
                             <div class="col-sm-4">
                                 <textarea name="deskripsi" class="form-control"></textarea>
                             </div>
-                        </div>
+                        </div>                        
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Ambil Keuntungan</label>
                             <div class="col-sm-4">
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min=0 name=keutungan value="" required>
-                                    <span class="input-group-addon">%</span>
+                                    <input class="form-control" type="number" min=0 name=keuntungan value="" required>
+                                    <div class="input-group-append"><span class="input-group-text">%</span></div>
                                 </div>                                
                             </div>                                                       
                         </div>
@@ -82,6 +147,9 @@
                                 </div>
                             </div>
                         </div> 
+                        <div id=itenerary>
+
+                        </div>
                         <div style="padding:30px;margin-left:800px;">
                             <button class="btn btn-success" type="submit">Tambahkan Paket</button>
                         </div>                       
@@ -94,32 +162,132 @@
         </section>
         <!-- /wrapper -->
     </section>
-    <!-- /MAIN CONTENT -->
-    <!--main content end-->
-    <!--footer start-->
-    <!--footer end-->
-  </section>
-  @push("js")
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="{{asset('asset/admin/lib/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('asset/admin/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script class="include" type="text/javascript" src="{{asset('asset/admin/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
-  <script src="{{asset('asset/admin/lib/jquery.scrollTo.min.js')}}"></script>
-  <script src="{{asset('asset/admin/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
-  <!--common script for all pages-->
-  <script src="{{asset('asset/admin/lib/common-scripts.js')}}"></script>
-  <!--script for this page-->
-  <script src="{{asset('asset/admin/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
-  <!--custom switch-->
-  <script src="{{asset('asset/admin/lib/bootstrap-switch.js')}}"></script>
-  <!--custom tagsinput-->
-  <script src="{{asset('asset/admin/lib/jquery.tagsinput.js')}}"></script>
-  <!--custom checkbox & radio-->
-  <script type="text/javascript" src="{{asset('asset/admin/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
-  <script type="text/javascript" src="{{asset('asset/admin/lib/bootstrap-daterangepicker/date.js')}}"></script>
-  <script type="text/javascript" src="{{asset('asset/admin/lib/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-  <script type="text/javascript" src="{{asset('asset/admin/lib/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
-  <script src="{{asset('asset/admin/lib/form-component.js')}}"></script>
-@endpush
+    <script src="{{asset('asset/admin/lib/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('asset/admin/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script>
+        var durasi=$('#durasi').val();
+        var domtoappend="";       
+        for (let i = 0; i < durasi; i++) {
+            var domtoappend=domtoappend+`<div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Itenerary hari ke ${i+1} </label>
+                        <div class="col-sm-4">
+                            <textarea name="itenerary${i+1}" class="form-control"></textarea>
+                        </div>
+                    </div>`;          
+            
+        }
+        $('#itenerary').html(domtoappend);
+        $('#durasi').on('change',function(){
+            var durasi=$('#durasi').val();
+            console.log(durasi);            
+            for (let i = 0; i < durasi; i++) {
+                var domtoappend=domtoappend+`<div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Itenerary hari ke ${i+1} </label>
+                            <div class="col-sm-4">
+                                <textarea name="itenerary${i+1}" class="form-control" required></textarea>
+                            </div>
+                        </div>`;          
+                
+            }
+            $('#itenerary').html(domtoappend);
+        });
+    
+        var negaraasalid=$('#asalnegara').val();
+        var negaratujuanid=$('#tujuannegara').val();
+        updatehotel();
+        updatepenerbangan();
+        var domflight="";
+        $('#tujuannegara').on('change',function(){
+            negaratujuanid=$('#tujuannegara').val();
+            updatepenerbangan();
+            updatehotel();
+ 
+        });
+        $('#asalnegara').on('change',function(){
+            negaraasalid=$('#asalnegara').val();
+            updatepenerbangan();
+        });
+        function updatepenerbangan(){                        
+            $.ajax({
+                method:'get',
+                url:'/admin/ajaxpenerbangan/'+negaraasalid+'/'+negaratujuanid,
+                // data: {idnegaraasal:negaraasalid,idnegaratujuan:negaratujuanid},
+                success:function(res){                    
+                    domflight="";
+                    var x=typeof res;
+                    if(x!="string"){
+                        res.forEach(element => {
+                            domflight+="<option value=\""+element.id+"\">" +element.nama_maskapai+ "["+element.kode_bandara_asal+"] - ["+element.kode_bandara_tujuan+"]</option>";
+                        });
+                        $('#flight').html(domflight);
+                    }
+                    else{
+                        domflight+="<option value=none><strong>Tidak ada Data</strong></option>";
+                        $('#flight').html(domflight);
+                    }
+                    updatedataflight();
+                }                
+            });
+        }
+        $('#flight').on('change',function(){
+            updatedataflight();
+        });
+        function updatedataflight(){
+            if($('#flight').val()!="none")
+            $.ajax({
+                method:'get',
+                url:'/admin/ajaxdataflight/'+$('#flight').val(),
+                success:function(res){                                                           
+                   res.forEach(element => {
+                       $('#asalbandara').val(element.bandara_asal);
+                       $('#tujuanbandara').val(element.bandara_tujuan);
+                       $('#durasiflight').val(element.durasi);
+                       $('#hargaflight').val(element.harga);
+                   });
+                }                
+            });
+        }
+        var domhotel="";
+        function updatehotel(){                        
+            $.ajax({
+                method:'get',
+                url:'/admin/ajaxhotel/'+negaratujuanid,
+                data: {hotel:'hotel'},
+                success:function(res){                    
+                    domhotel="";
+                    var x=typeof res;
+                    if(x!="string"){
+                        res.forEach(element => {
+                            domhotel+="<option value=\""+element.id+"\">"+element.name+"</option>";
+                        });
+                        $('#hotel').html(domhotel);
+                        updatedatahotel();
+                    }
+                    else{
+                        domhotel+="<option value=none><strong>Tidak ada Data</strong></option>";
+                        $('#hotel').html(domhotel);
+                    }
+                    // updatedatahotel();
+                }                
+            });
+        }
+        function updatedatahotel(){
+            if($('#hotel').val()!="none")
+            $.ajax({
+                method:'get',
+                url:'/admin/ajaxdatahotel/'+$('#hotel').val(),
+                success:function(res){                                                           
+                   res.forEach(element => {
+                       $('#hargahotel').val(element.harga);
+                   });
+                }                
+            });
+        }
+        $('#hotel').on('change',function(){
+            updatedatahotel();
+        });
+
+    </script>
+
 
   @endsection

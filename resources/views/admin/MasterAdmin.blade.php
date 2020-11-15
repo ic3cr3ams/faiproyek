@@ -18,11 +18,11 @@
     <link href="{{ asset('asset/admin/lib/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <!--external css-->
     <link href="{{ asset('asset/admin/lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-fileupload/bootstrap-fileupload.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-datepicker/css/datepicker.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-daterangepicker/daterangepicker.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-timepicker/compiled/timepicker.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-datetimepicker/css/datetimepicker.css') }}" /> --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-fileupload/bootstrap-fileupload.css') }}" />
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-datepicker/css/datepicker.css') }}" /> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-daterangepicker/daterangepicker.css') }}" /> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-timepicker/compiled/timepicker.css') }}" /> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('asset/admin/lib/bootstrap-datetimepicker/css/datetimepicker.css') }}" /> --}}
     <!-- Custom styles for this template -->
     <link href="{{ asset('asset/admin/css/style.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('asset/admin/css/style-responsive.css') }}" rel="stylesheet"> --}}

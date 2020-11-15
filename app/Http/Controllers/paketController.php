@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\countries;
 use App\Model\dhotel;
 use App\Model\dpaket;
+use App\Model\flight;
 use App\Model\hotel;
+use App\Model\itenerarypaket;
+use App\Model\maskapai;
 use App\Model\paket_tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -14,7 +18,6 @@ class paketController extends Controller
 {
     //
     public function addPaket(Request $request){
-        $lastid=1;
         $file=$request->file('gambar');
         $tujuanfile='paketPicture';
         $fileExtensions=$file->getClientOriginalExtension();
@@ -23,22 +26,54 @@ class paketController extends Controller
         // dd($namapaketfile);
         $file->storeAs($tujuanfile,"paket".$namapaketfile.".".$file->getClientOriginalExtension(),"public");
         // $file->move($tujuanfile,"paket$request->nama.".$file->getClientOriginalExtension());
-        paket_tour::insertGetId([
+        $totalbiaya=intval($request->hargaflight)+intval($request->hargahotel)+intval($request->biayalain);
+        $hargajual=$totalbiaya+($totalbiaya/100*$request->keuntungan);
+        // dd($request->input("itenerary1"));
+        $id=paket_tour::insertGetId([
+            "nama_paket" => $request->nama,
+            "negara_asal"=>$request->asalnegara,
+            "negara_tujuan"=>$request->tujuannegara,
             "durasi"=>$request->durasi,
-            "nama" => $request->nama,
-            "kota"=>$request->kota,
-            "negara"=>$request->negara,
+            "flight"=>$request->flight,
+            "harga_flight"=>$request->hargaflight,
+            "hotel"=>$request->hotel,
+            "harga_hotel"=>$request->hargahotel,
+            "biayalain"=>$request->biayalain,
             "deskripsi"=>$request->deskripsi,
             "keuntungan"=>$request->keuntungan,
+            "hargajual"=>$hargajual,
             "gambar"=>"paket".$namapaketfile.".".$file->getClientOriginalExtension()
         ]);
+        for ($i=0; $i<$request->durasi ; $i++) { 
+            // dd("itenerary".($i+1));
+            itenerarypaket::insert([
+                "idpaket"=>$id,
+                "hari"=>$i+1,
+                "itenerary"=>$request->input("itenerary".($i+1))
+            ]);
+        }
+        
+       
         return redirect()->route('listpaket')->with('berhasil add Paket');
     }
     public function listPaket(){
         $datapaket=paket_tour::all();
-        // dd($datapaket->isEmpty());
-        return view('admin.paket',["datapaket"=>$datapaket]);
+        $datanegara=countries::all();
+        return view('admin.paket',["datapaket"=>$datapaket,"datanegara"=>$datanegara]);
     }
+
+    public function detailpaket($id){
+        $datapaket=paket_tour::where('id',$id)->get();
+        $datahotel=hotel::all();
+        $dataflight=flight::all();
+        $datamaskapai=maskapai::all();
+        $dataitenerary=itenerarypaket::where('idpaket',$id)->get();
+        // dd($dataitenerary);
+        return view('admin.detailpaket2',["datapaket"=>$datapaket,"datahotel"=>$datahotel,"dataflight"=>$dataflight,
+        "dataitenerary"=>$dataitenerary,"datamaskapai"=>$datamaskapai]);
+
+    }
+
     public function editPaketView($id){
         $datapaket=paket_tour::findOrFail($id);
         return view('admin.editpaket2',["datapaket"=>$datapaket]);
@@ -64,26 +99,26 @@ class paketController extends Controller
         $datapaket->save();
         return redirect()->route('listpaket')->with('Berhasil Edit Paket');
     }
-    public function detailPaketView($id){
-        // $datadetailpaket=dpaket::join('hotel','dpaket2.id_hotel','=','hotel.id')->where('id_paket',$id)->orderBy('hari','asc')->get();
-        $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get();
-        $datahotel=hotel::all();
-        return view('admin.detailpaket2',["datadetailpaket"=>$datadetailpaket,"idpaket"=>$id,"datahotel"=>$datahotel]);
-    }
-    public function tambahdetailPaketView($id){
-        // $datadetailpaket=dpaket::join('hotel','dpaket2.id_hotel','=','hotel.id')->where('id_paket',$id)->orderBy('hari','asc')->get();
-        $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get();
-        $paket=paket_tour::where('id',$id)->first();
-        $dataHotel=hotel::where("kota",$paket->kota)->where("negara",$paket->negara)->get();
-        // dd($paket->kota.$paket->negara);
-        $harike=dpaket::where('id_paket',$id)->count()+1;
-        return view('admin.tambahdetailpaket',
-        ["datadetailpaket"=>$datadetailpaket,
-        "idpaket"=>$id,
-        "paket"=>$paket,
-        "datahotel"=>$dataHotel,
-        "harike"=>$harike]);
-    }
+    // public function detailPaketView($id){
+    //     // $datadetailpaket=dpaket::join('hotel','dpaket2.id_hotel','=','hotel.id')->where('id_paket',$id)->orderBy('hari','asc')->get();
+    //     $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get();
+    //     $datahotel=hotel::all();
+    //     return view('admin.detailpaket2',["datadetailpaket"=>$datadetailpaket,"idpaket"=>$id,"datahotel"=>$datahotel]);
+    // }
+    // public function tambahdetailPaketView($id){
+    //     // $datadetailpaket=dpaket::join('hotel','dpaket2.id_hotel','=','hotel.id')->where('id_paket',$id)->orderBy('hari','asc')->get();
+    //     $datadetailpaket=dpaket::where('id_paket',$id)->orderBy('hari','asc')->get();
+    //     $paket=paket_tour::where('id',$id)->first();
+    //     $dataHotel=hotel::where("kota",$paket->kota)->where("negara",$paket->negara)->get();
+    //     // dd($paket->kota.$paket->negara);
+    //     $harike=dpaket::where('id_paket',$id)->count()+1;
+    //     return view('admin.tambahdetailpaket',
+    //     ["datadetailpaket"=>$datadetailpaket,
+    //     "idpaket"=>$id,
+    //     "paket"=>$paket,
+    //     "datahotel"=>$dataHotel,
+    //     "harike"=>$harike]);
+    // }
     public function ajaxjenishotel($id){
         $datajeniskamar=dhotel::where('id_hotel',$id)->get();
         return $datajeniskamar;
@@ -108,6 +143,26 @@ class paketController extends Controller
             "hargajual"=>$hargajual
         ]);
         return Redirect::to("/admin/detailPaket/$request->idpaket")->with('success',"Berhasil Menambah detail Paket");
-
+    }
+    public function ajaxpenerbangan($idasal,$idtujuan){
+        // dd($idasal);
+        $negaraasal=countries::find($idasal);
+        $negaratujan=countries::find($idtujuan);
+        $dataflightreturn=flight::where('asal',$negaraasal->name)->where('tujuan',$negaratujan->name)->get();
+        if($dataflightreturn->isEmpty())return "";
+        else return $dataflightreturn;
+    }
+    public function ajaxdataflight($id){
+        $dataflight=flight::where('id',$id)->get();
+        return $dataflight;
+    }
+    public function ajaxhotel($id){
+        $datahotel=hotel::where('negara',$id)->get();
+        if($datahotel->isEmpty())return "";
+        else return $datahotel;
+    }
+    public function ajaxdatahotel($id){
+        $dataflight=hotel::where('id',$id)->get();
+        return $dataflight;
     }
 }

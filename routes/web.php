@@ -107,7 +107,8 @@ Route::middleware("authAdmin")->group(function(){
         Route::get('paket','paketController@listPaket' )->name('listpaket');
 
         Route::get('tambahPaket', function () {
-            return view('admin.tambahPaket2');
+            $datanegara=countries::all();
+            return view('admin.tambahPaket2',["datanegara"=>$datanegara]);
         });
         Route::post('addPaket','paketController@addPaket');
         Route::post('/addHotel','hotelController@addHotel');
@@ -116,7 +117,11 @@ Route::middleware("authAdmin")->group(function(){
         Route::get('/tambahdetailpaket/{param}','paketController@tambahdetailPaketView');
         Route::get('/ajaxjenishotel/{param}','paketController@ajaxjenishotel');
         Route::get('/ajaxhargakamar','paketController@ajaxhargakamar');
-        Route::post('/tambahdetailPaket','paketController@tambahdetailPaket');
+        Route::get('/ajaxpenerbangan/{param1}/{param2}','paketController@ajaxpenerbangan');
+        Route::get('/ajaxdataflight/{param}','paketController@ajaxdataflight');
+        Route::get('/ajaxhotel/{param}','paketController@ajaxhotel');
+        Route::get('/ajaxdatahotel/{param}','paketController@ajaxdatahotel');
+        Route::get('/detailpaket/{param}','paketController@detailpaket');
 
         Route::post('/editpaket','paketController@editPaket');
         Route::get('lihatdetail', function () {
