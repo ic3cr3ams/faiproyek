@@ -16,7 +16,8 @@
                 <!-- /pull-right -->
                 <div class="clearfix"></div>
                   <form action="lihatlaporan" action="post">
-                    <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
+                    <div class="col-md-3 col-xs-8">
+                      <label>Bulan : </label>
                         <select class="form-control" name="bulan">
                           <option >-</option>
                           <option value="Januari">Januari</option>
@@ -34,19 +35,19 @@
                         </select>
                       </div>
                       <br>
-                      <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
+                      <div class="col-md-3 col-xs-8">
+                        <label>Tahun :</label>
                         <select class="form-control" name="tahun">
                             <option >-</option>
                             <option value="2019">2019</option>
                             <option value="2020">2020</option>
                             <option value="2021">2021</option>
                         </select>
+                        <br>
+                        {{-- EDIT BUTTON DISINI --}}
+                        <button type="submit" class="btn btn-theme">Pilih</button>
                       </div>
                       <br>
-                      <div class="col-md-5 col-xs-8" style="margin-left: 550px;">
-                        {{-- EDIT BUTTON DISINI --}}
-                      <button type="submit" class="btn btn-theme">Pilih</button>
-                      </div>
                   </form>
                   <br>
                   <br>
