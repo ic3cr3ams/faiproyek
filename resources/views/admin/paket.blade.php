@@ -12,10 +12,10 @@
                             <tr>
                                 <th>Nama Paket</th>
                                 <th>Durasi</th>
-                                <th>Lokasi</th>
+                                <th>Negara</th>
                                 <th>Deskripsi</th>
                                 <th>Gambar</th>
-                                <th>Ambil Keuntungan</th>
+                                <th>Harga</th>
                                 <th>Action<th>                               
                             </tr>
                         </thead>
@@ -23,15 +23,21 @@
                             @if(!$datapaket->isEmpty())
                                 @foreach ($datapaket as $item=>$value)
                                     <tr>
-                                        <td>{{$value->nama}}</td>
+                                        <td>{{$value->nama_paket}}</td>
                                         <td>{{$value->durasi}} Hari</td>
-                                        <td>{{$value->kota}},{{$value->negara}}</td>
+                                        <td>
+                                            @foreach ($datanegara as $items)
+                                                @if ($value->negara_tujuan==$items->id)
+                                                    {{$items->name}}
+                                                @endif
+                                            @endforeach    
+                                        </td>
                                         <td>{{$value->deskripsi}}</td>                                       
                                         <td><img src={{asset('/storage/paketPicture/'.$value->gambar)}} alt="eaa" width="150" height="100" class="img-thumbnail"></td>
-                                        <td>{{$value->keuntungan}}%</td>
+                                        <td>Rp. {{number_format($value->hargajual)}}</td>
                                         <td>
-                                            <a href="/admin/editPaket/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a>
-                                            <a href="/admin/detailPaket/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Details </button></a>
+                                            {{-- <a href="/admin/editPaket/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a> --}}
+                                            <a href="/admin/detailpaket/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-folder"></i> Details </button></a>
                                         </td>
                                     </tr>
                                 @endforeach
