@@ -40,14 +40,8 @@
               <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
               <li class="nav-item"><a href="paket" class="nav-link">Paket Tour</a></li>
               <li class="nav-item"><a href="blog" class="nav-link">Artikel Ziarah</a></li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  Bantuan
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="contact" class="nav-link">Contact</a>
-                  <a class="dropdown-item" href="cekPesan" class="nav-link">Cek Pemesanan</a>
-                </div>
+              <li class="nav-item">
+                  <a href="contact" class="nav-link">Contact</a>
               </li>
               <li class="nav-item"><a href="about" class="nav-link">About</a></li>
               @if (Session::has("login"))

@@ -13,16 +13,14 @@
               <table class="table table-striped table-advance table-hover">
                 <thead>
                   <tr>
-                    <th>Nama Peserta</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Umur</th>
+                    <th>Nama Customer</th>
+                    <th>Email</th>
+                    <th>No.Telp</th>
                     <th>No.Paspor</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @php
-                  $like =DB::table('htrans');
-                  @endphp
+                 
                   <tr>
                     <td>Nama Paket</td>
                     <td class="hidden-phone">Lorem Ipsum dolor</td>

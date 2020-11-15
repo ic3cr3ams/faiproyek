@@ -10,11 +10,21 @@
         <div style="margin-left: 600px;">
           <div class="form-group">
               <div>
-                  <div class="input-group">
-                      <input type="text" name="kapasitas"class="form-control" required><span class="input-group-addon">Search</span>
-                  </div>
+                  @php
+                      $paket  = DB::table('paket_tour')->get(array('nama','id'));
+                  @endphp
+                  <form action="pilihpaket" method="POST">
+                      @csrf
+                    <select class="form-control" name="paket">
+                        @foreach ($paket as $item=>$value)
+                            <option value="{{$value->id}}">{{$value->nama}}</option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="btn btn-theme">Pilih</button>
+                  </form>
+                  <br>
               </div>
-          </div> 
+          </div>
         </div>
         <div class="row mt">
           <div class="col-md-12">
@@ -24,25 +34,29 @@
                   <tr>
                     <th>Nama Customer</th>
                     <th>Paket</th>
-                    <th>Total Harga</th>
-                    <th>Status Pembayaran</th>
+                    <th>Harga Paket</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>
-                    </td>
-                    <td>12000.00$ </td>
-                    <td style="background-color: rgb(255, 136, 136);color:black;">Pending</td>
-                    <td>
-                      <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
-                    </td>
-                  </tr>
+                        @if (Session::get('customer')=='Tidak Ada Data')
+                            <h1>{{Session::get('customer')}}</h1>
+                        @elseif(!Session::has('customer'))
+                            <h1>Silahkan Pilih Paket</h1>
+                        @else
+                            @foreach (Session::get('customer') as $item =>$value)
+                            <tr>
+                                <td>{{$value->nama_depan.$value->nama_belakang}}</td>
+                                <td>{{$value->nama}}</td>
+                                <td>{{$value->hargajual}}</td>
+                                <td>
+                                  <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
+                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
+                                </td>
+                            </tr>
+                            @endforeach
+
+                        @endif
                 </tbody>
               </table>
             </div>

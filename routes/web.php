@@ -156,6 +156,7 @@ Route::middleware("authAdmin")->group(function(){
         Route::get('listCutomer', function () {
             return view('admin/listCutomer');
         });
+        Route::post('pilihpaket','CustomerController@lihat');
         Route::get('detailCustomer', function () {
             return view('admin/detailCustomer');
         });
