@@ -66,16 +66,16 @@ class paketController extends Controller
         $nama_paket = $request->nama_paket;
         $lokasi = $request->kota;
         $bulan = $request->bulan;
-        if($nama_paket != "")
-        {}
-        elseif ($lokasi != "")
-        {
-            $param['dataTour']=DB::table('paket_tour as pt')
-            ->join('countries as ct','pt.negara_tujuan','=','ct.id')
-            ->select()
+        // if($nama_paket != "")
+        // {}
+        // elseif ($lokasi != "")
+        // {
+        //     $param['dataTour']=DB::table('paket_tour as pt')
+        //     ->join('countries as ct','pt.negara_tujuan','=','ct.id')
+        //     ->select()
     
-        }
-        elseif ($bulan != ""){}
+        // }
+        // elseif ($bulan != ""){}
  
         // $request->validate([
         //     "nama" => "string|required"
