@@ -13,6 +13,7 @@ use App\Model\paket_tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class paketController extends Controller
 {
@@ -61,7 +62,33 @@ class paketController extends Controller
         $datanegara=countries::all();
         return view('admin.paket',["datapaket"=>$datapaket,"datanegara"=>$datanegara]);
     }
-
+    public function searchPaket(Request $request) {
+        $nama_paket = $request->nama_paket;
+        $lokasi = $request->kota;
+        $bulan = $request->bulan;
+        if($nama_paket != "")
+        {}
+        elseif ($lokasi != "")
+        {
+            $param['dataTour']=DB::table('paket_tour as pt')
+            ->join('countries as ct','pt.negara_tujuan','=','ct.id')
+            ->select()
+    
+        }
+        elseif ($bulan != ""){}
+ 
+        // $request->validate([
+        //     "nama" => "string|required"
+        // ]);
+        // // Lakukan searching buku
+        // $arrBuku = paket_tour::query()
+        //     // select * from buku where `LOWER(judul_buku)` like '%%';
+        //     ->where(DB::raw("LOWER(nama_paket)"), "like", 
+        //     "%".\strtolower($request->input("nama_paket"))."%")->get();
+        // return \view("buku.search", [
+        //     'data' => $arrBuku
+        // ])->with("nama", $request->input("nama"));
+    }
     public function detailpaket($id){
         $datapaket=paket_tour::where('id',$id)->get();
         $datahotel=hotel::all();
