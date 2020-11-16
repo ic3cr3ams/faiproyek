@@ -11,13 +11,13 @@
           <div class="form-group">
               <div>
                   @php
-                      $paket  = DB::table('paket_tour')->get(array('nama','id'));
+                      $paket  = DB::table('paket_tour')->get(array('nama_paket','id'));
                   @endphp
                   <form action="pilihpaket" method="POST">
                       @csrf
                     <select class="form-control" name="paket">
                         @foreach ($paket as $item=>$value)
-                            <option value="{{$value->id}}">{{$value->nama}}</option>
+                            <option value="{{$value->id}}">{{$value->nama_paket}}</option>
                         @endforeach
                     </select>
                     <button type="submit" class="btn btn-theme">Pilih</button>
