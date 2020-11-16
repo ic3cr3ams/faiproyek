@@ -28,6 +28,7 @@
                         <th>Alamat</th>
                         <th>Kota</th>
                         <th>Negara</th>
+                        <th>Harga</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -43,7 +44,10 @@
                                             {{$items->name}}
                                         @endif
                                         @endforeach</td>
+                                    <td>Rp. {{number_format($value->harga)}}</td>
                                     <td>
+                                        
+                                        
                                         <a href="/admin/editHotel/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a>
                                         {{-- <a href="/admin/detailHotel/{{$value->id}}"><button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Details </button></a> --}}
                                         {{-- <a href="deleteHotel/{{$value->id}}"> --}}

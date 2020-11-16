@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('logout','mctrl@logout');
+
+Route::get('/paket','paketController@listTour');
+Route::get('/detailpaket', function () {
+    return view('detailpaket');
+});
+
 //ABOUT AND CONTACT
 Route::get('/about', function () {
     return view('about');
@@ -71,10 +77,10 @@ Route::get('/forgotpass', function () {
 });
 Route::get('logout','mctrl@logout');
 
-//Detail paket
-Route::get('/paket', function () {
-    return view('paket');
-});
+// //Detail paket
+// Route::get('/paket', function () {
+//     return view('paket');
+// });
 Route::get('/detailpaket', function () {
     return view('detailpaket');
 });

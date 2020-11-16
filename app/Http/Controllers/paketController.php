@@ -11,6 +11,7 @@ use App\Model\itenerarypaket;
 use App\Model\maskapai;
 use App\Model\paket_tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
@@ -165,4 +166,16 @@ class paketController extends Controller
         $dataflight=hotel::where('id',$id)->get();
         return $dataflight;
     }
+     public function listTour()
+    {
+        //$dataTour=paket_tour::all();
+        //return view('/paket',["dataTour"=>$dataTour]);
+        $param["dataTour"] = DB::table('paket_tour as pt')
+        // ->join('dpaket2 as dp','pt.id','=','dp.id_paket')
+        ->select('pt.id','pt.nama_paket','pt.durasi','pt.negara_tujuan','pt.gambar','pt.hargajual')
+        ->get();
+        //return view('/paket',["dataTour"=>$dataTour]);
+        return view('/paket')->with($param);
+    }
+    
 }
