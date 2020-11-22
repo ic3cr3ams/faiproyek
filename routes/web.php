@@ -1,4 +1,3 @@
-
 <?php
 
 use App\Http\Controllers\adminController;
@@ -23,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('logout','mctrl@logout');
 
 Route::get('/paket','paketController@listTour');
-Route::get('/detailpaket', function () {
-    return view('detailpaket');
-});
+Route::post('/detailpaket', 'detailCustController@lihatdetail');
 
 //ABOUT AND CONTACT
 Route::get('/about', function () {
@@ -103,6 +100,8 @@ Route::get('/', function () {
 //Punya Admin
 Route::middleware("authAdmin")->group(function(){
     Route::prefix('admin')->group(function () {
+        Route::post('deletecustomer','CustomerController@delete');
+
         Route::get('lihatlaporan','laporanController@lihat');
         Route::post('send','ControllerChat@send');
         Route::post('pilihcustomer','ControllerChat@pilih');
@@ -208,4 +207,3 @@ Route::middleware("authAdmin")->group(function(){
 });
 
 // Route::get('/admin/detailHotel/2',"hotelController@detailHotel");
-

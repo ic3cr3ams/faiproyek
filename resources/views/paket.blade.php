@@ -49,9 +49,9 @@
           <div class="col-lg-9">
            <div class="row">
     @foreach ($dataTour as $tour)
-            <div class="col-md-4 ftco-animate">
+            <div class="col-md-5 ftco-animate">
           <div class="destination">
-			  {{-- <img src="{{asset('/storage/paketPicture/'.$tour->gambar)}}" alt=""> --}}
+              <input type="hidden" value="">
            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image:={{asset('/storage/paketPicture/'.$tour->gambar)}};">
            </a>
            <div class="text p-3">
@@ -59,17 +59,22 @@
              <div class="one">
               <h3><a href="#">{{ $tour->nama_paket }}</a></h3>
              </div>
-             <div class="two">
+             <div class="two" style="margin-left: -22px;">
               <span class="price">Rp.{{ number_format($tour->hargajual) }}</span>
              </div>
             </div>
             <p>Tanggal Keberangkatan : 10 Mei 2021 - 21 Mei 2021</p>
             <p class="days"><span>{{ $tour->durasi }} Hari</span></p>
             <hr>
+            <form action="detailpaket" method="post">
+                @csrf
             <p class="bottom-area d-flex">
-             <span><i class="icon-map-o"></i> {{ $tour->negara_tujuan}}</span>
-             <span class="ml-auto" id="{{ $tour->id }}"><a href="detailpaket">Discover</a></span>
+                <span><i class="icon-map-o"></i> {{ $tour->negara_tujuan}}</span>
+                <input type="hidden" value="{{$tour->id}}" name="id" >
+                <button type="submit" class="ml-auto btn btn-success" >Discover</button>
+                {{-- <span id="{{ $tour->id }}"><a href="detailpaket">Discover</a></span> --}}
             </p>
+            </form>
            </div>
           </div>
       </div>
