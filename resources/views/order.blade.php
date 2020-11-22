@@ -30,6 +30,7 @@
 						  <div class="card-body">
 								  <form action="daftarPeserta" method="POST">
 									  @csrf
+									  <input type="hidden" value="" name="id_paket">
 									  <div class="row"></div>
 										  <h6>Peserta 1</h6>
 									  <div class="row">
@@ -121,7 +122,16 @@
 									<input type="text" class="form-control" id="nopaspor" placeholder="No.Paspor" name="nopaspor">
 								  </div>
 							  </div>
-									</form>
+							  <br/>
+							  <div class="row">
+								<div class="col">
+									<button type="submit" class="ml-auto btn btn-success" >Save</button>
+								</div>
+								<div class="col">
+									<a href="paket"><button type="button" class="ml-auto btn btn-danger" >Cancel</button></a>
+								</div>
+							</div>
+							</form>
 						  </div>
 						</div>
 					  </div>
@@ -148,30 +158,32 @@
 				  <div class="text">
 					<div class="meta">
 						<table class="table">
+							@foreach ($dataTour as $item)
 							<thead>
 							  <tr>
-								<th>Jerusalem Blessing Holyland Petra</th>
-								<th>USD</th>
-								<th>$2.625</th>
+								<th>{{ $item["nama_paket"] }}</th>
+								<th>Rp</th>
+								<th>{{ number_format($item->hargajual)}}</th>
 							  </tr>
 							</thead>
 							<tbody>
 							  <tr>
 								<td>Airport Tax & Fuel</td>
-								<td>USD</td>
-								<td>$0.00</td>
+								<td>Rp</td>
+								<td>{{ number_format($item->harga_flight)}}</td>
 							  </tr>
 							  <tr>
 								<td>Singgle Supplement</td>
-								<td>USD</td>
-								<td>$250</td>
+								<td>Rp</td>
+								<td>{{ number_format($item->harga_hotel)}}</td>
 							  </tr>
 							  <tr>
 								<td>Travel Asurance</td>
-								<td>USD</td>
-								<td>$50</td>
+								<td>Rp</td>
+								<td>{{ number_format($item->harga_hotel)}}</td>
 							  </tr>
-							</tbody>
+							</tbody>					
+							@endforeach
 						  </table>
 					</div>
 					<div class="sidebar-box ftco-animate">
@@ -179,7 +191,9 @@
 						<div>
 						  <div class="text">
 							<div class="meta">
-								<h2 style="color: red;">USD 2.925</h2>
+								@foreach ($dataTour as $item)
+								<h2 style="color: red;">Rp {{ number_format($item->hargajual)}}</h2>
+								@endforeach
 								<button type="submit" class="btn btn-warning" name="lanjut"><a href="checout">Selanjutnya ></a></button>
 							</div>
 				  </div>
@@ -188,6 +202,6 @@
 			  </div>
             </div>
         </div>
-      </div>
+	  </div>
     </section> <!-- .section -->
     @endsection

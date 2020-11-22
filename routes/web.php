@@ -24,6 +24,7 @@ Route::get('logout','mctrl@logout');
 Route::get('/paket','paketController@listTour');
 Route::post('/detailpaket', 'detailCustController@lihatdetail');
 
+
 //ABOUT AND CONTACT
 Route::get('/about', function () {
     return view('about');
@@ -84,6 +85,7 @@ Route::get('/detailpaket', function () {
 Route::get('/order', function () {
     return view('order');
 });
+Route::post('/order', 'paketController@booking');
 Route::get('/checout', function () {
     return view('checout');
 });

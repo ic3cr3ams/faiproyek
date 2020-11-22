@@ -98,7 +98,6 @@ class paketController extends Controller
         // dd($dataitenerary);
         return view('admin.detailpaket2',["datapaket"=>$datapaket,"datahotel"=>$datahotel,"dataflight"=>$dataflight,
         "dataitenerary"=>$dataitenerary,"datamaskapai"=>$datamaskapai]);
-
     }
 
     public function editPaketView($id){
@@ -203,5 +202,15 @@ class paketController extends Controller
         //return view('/paket',["dataTour"=>$dataTour]);
         return view('/paket')->with($param);
     }
-    
+    public function booking(Request $request)
+    {
+        $nama_depan= $request->namadepan;
+        $nama_belakang = $request->namabelakang;
+        $email = $request->email;
+        $telp = $request->notelp;
+        $nopaspor = $request->nopaspor;
+        $id_paket = $request->id_tour;
+        $param["dataTour"] = paket_tour::where('id',$id_paket)->get();
+        return view('/order')->with($param);
+    }
 }

@@ -182,9 +182,13 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <a href="order">
-                        <input type="submit" value="Book Now" class="btn btn-primary py-3" style="width:100px;">
-                        </a>
+                        {{-- <a href="order"> --}}
+                        <form action="/order" method="POST">
+                          @csrf 
+                          <input type="hidden" name="id_tour" value="{{Session::get('idtour')}}">  
+                          <input type="submit" value="Book Now" class="btn btn-primary py-3" style="width:100px;">
+                        </form>
+                        {{-- </a> --}}
                     </div>
                 </div>
                       </div>
