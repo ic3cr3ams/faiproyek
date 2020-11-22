@@ -8,16 +8,16 @@
             <div class="col-md-12">
                 <div class="content-panel">
                     <h4 class=ml-2>Detail Paket</h2>
-                    <table class="table table-striped table-advance table-hover">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th>Hotel</th>
-                                <th>Harga Hotel</th>
+                                <th>Name</th>
+                                <th>Harga</th>
                                 {{-- <th>Jenis Kamar</th> --}}
-                                <th>Flight</th>
+                                {{-- <th>Flight</th>
                                 <th>Harga Flight</th>
                                 <th>Biaya Lain</th>
-                                <th>Ambil Keuntungan</th>                           
+                                <th>Ambil Keuntungan</th>                            --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -26,9 +26,11 @@
                                     @foreach ($datahotel as $items)
                                         @if($item->hotel==$items->id)
                                             <td>{{$items->name}}</td>
-                                            <td>{{$items->harga}}</td>
+                                            <td>Rp.{{number_format($item->harga_hotel)}}</td>
                                         @endif
-                                    @endforeach    
+                                    @endforeach  
+                               </tr>
+                               <tr>  
                                     @foreach ($dataflight as $items)
                                         @if($item->flight==$items->id)
                                             @foreach ($datamaskapai as $itemss)
@@ -36,13 +38,27 @@
                                                     <td>{{$itemss->nama."[".$items->kode_bandara_asal."]-[".$items->kode_bandara_tujuan."]"}}</td>
                                                 @endif
                                             @endforeach
-                                            
-                                            <td>{{$items->harga}}</td>
+                                        <td>Rp.{{number_format($items->harga)}}</td>
                                         @endif
                                     @endforeach    
+                                </tr>
+                                <tr>
+                                    <td>Biaya Lain</td>
                                     <td>Rp.{{number_format($item->biayalain)}}</td>
-                                    <td>{{$item->keuntungan}}%</td>
+                                </tr>       
+                                <td>Keuntungan</td>
+                                    <td>{{$item->keuntungan}}% (Rp.{{number_format($item->hargajual-$item->biayalain-$item->harga_flight-$item->harga_hotel)}})</td>                                    
                                 </tr> 
+                                <tr>
+                                    <td><h5><strong>Total</strong></h5></td>
+                                    <td><h5><strong>Rp.{{number_format($item->hargajual)}}</strong></h5></td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>HPP</td>
+                                    <td>Rp.{{number_format($item->biayalain+$item->harga_flight+$item->harga_hotel)}}</td>
+                                </tr>
+                               
                             @endforeach
                         </tbody>
                     </table><br><br><br>  

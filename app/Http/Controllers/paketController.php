@@ -27,7 +27,7 @@ class paketController extends Controller
         // dd($namapaketfile);
         $file->storeAs($tujuanfile,"paket".$namapaketfile.".".$file->getClientOriginalExtension(),"public");
         // $file->move($tujuanfile,"paket$request->nama.".$file->getClientOriginalExtension());
-        $totalbiaya=intval($request->hargaflight)+intval($request->hargahotel)+intval($request->biayalain);
+        $totalbiaya=intval($request->hargaflight)+intval($request->hargahotel*$request->durasi)+intval($request->biayalain);
         $hargajual=$totalbiaya+($totalbiaya/100*$request->keuntungan);
         // dd($request->input("itenerary1"));
         $id=paket_tour::insertGetId([
@@ -38,7 +38,7 @@ class paketController extends Controller
             "flight"=>$request->flight,
             "harga_flight"=>$request->hargaflight,
             "hotel"=>$request->hotel,
-            "harga_hotel"=>$request->hargahotel,
+            "harga_hotel"=>($request->hargahotel*$request->durasi),
             "biayalain"=>$request->biayalain,
             "deskripsi"=>$request->deskripsi,
             "keuntungan"=>$request->keuntungan,
