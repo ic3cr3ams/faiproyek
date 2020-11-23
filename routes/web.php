@@ -85,6 +85,7 @@ Route::get('/detailpaket', function () {
 Route::get('/order', function () {
     return view('order');
 });
+Route::post('/daftarPeserta', 'paketController@adddatacustomer');
 Route::post('/order', 'paketController@booking');
 Route::get('/checout', function () {
     return view('checout');

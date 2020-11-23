@@ -28,9 +28,8 @@
 						</div>
 						<div id="menu4" class="collapse">
 						  <div class="card-body">
-								  <form action="daftarPeserta" method="POST">
+								  <form action="/daftarPeserta" method="POST">
 									  @csrf
-									  <input type="hidden" value="" name="id_paket">
 									  <div class="row"></div>
 										  <h6>Peserta 1</h6>
 									  <div class="row">
@@ -134,7 +133,6 @@
 									<a href="paket"><button type="button" class="ml-auto btn btn-danger" >Cancel</button></a>
 								</div>
 							</div>
-
 							</form>
 						  </div>
 						</div>
