@@ -15,5 +15,5 @@ class detailCustController extends Controller
         Session::put('idtour',$id);
         return view('detailpaket');
     }
-    
+
 }

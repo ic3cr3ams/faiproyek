@@ -103,6 +103,10 @@ Route::get('/', function () {
 //Punya Admin
 Route::middleware("authAdmin")->group(function(){
     Route::prefix('admin')->group(function () {
+        Route::post('accept','DetailHistory@accept');
+        Route::post('deny','DetailHistory@deny');
+
+        Route::post('detailcustomer','DetailHistory@Detailhistory');
         Route::post('deletecustomer','CustomerController@delete');
 
         Route::get('lihatlaporan','laporanController@lihat');

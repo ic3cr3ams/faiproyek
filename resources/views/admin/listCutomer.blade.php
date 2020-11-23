@@ -42,7 +42,8 @@
                 <tbody>
                         @if (!Session::get('customer'))
                             @php
-                                $data = db::table('customer')->get();
+                                $data = db::table('customer')->join('htrans','htrans_customer_id','customer_id')->orderBy('htrans_status','asc')->get();
+                                // dd($data);
                             @endphp
                             @foreach ($data as $item=>$value)
                             <tr>
@@ -51,11 +52,21 @@
                                 <td>{{$value->no_paspor}}</td>
                                 <td>{{$value->customer_phone}}</td>
                                 <td>
-                                    <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
-                                    <form action="deletecustomer" method="POST">
+                                  <form action="detailcustomer" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{$value->customer_id}}" name="id">
+                                    @if ($value->htrans_status==2)
+                                      <button class="btn btn-success btn-xs"><i class="fa fa-history" style="font-size:15px;"> History Pemesanan</i></button>
+                                    @elseif($value->htrans_status==1)
+                                      <button class="btn btn-warning btn-xs"><i class="fa fa-history" style="font-size:15px;"> History Pemesanan</i></button>
+                                    @elseif($value->htrans_status==0)
+                                        <button class="btn btn-warning btn-xs"><i class="fa fa-ban" style="font-size:15px;"> History Pemesanan</i></button>
+                                    @endif
+                                  </form>
+                                  <form action="deletecustomer" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{$value->customer_id}}" name="id">
-                                    <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o "></i> Delete</button>
+                                    <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"style="font-size:15px;"></i> Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -68,16 +79,26 @@
                                 <td>{{$value->no_paspor}}</td>
                                 <td>{{$value->customer_phone}}</td>
                                 <td>
+                                    <form action="detailcustomer" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{$value->customer_id}}" name="id">
+                                        @if ($value->htrans_status==2)
+                                          <button class="btn btn-success btn-xs"><i class="fa fa-history" style="font-size:15px;"> History Pemesanan</i></button>
+                                        @elseif($value->htrans_status==1)
+                                          <button class="btn btn-warning btn-xs"><i class="fa fa-history" style="font-size:15px;"> History Pemesanan</i></button>
+                                        @elseif($value->htrans_status==0)
+                                          <button class="btn btn-warning btn-xs"><i class="fa fa-ban" style="font-size:15px;"> History Pemesanan</i></button>
+                                        @endif
+                                      </form>
                                     <form action="deletecustomer" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{$value->customer_id}}" name="id">
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o "></i>Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" style="font-size:15px;"> Delete</i></button>
                                     {{-- <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o "></i> Delete</button> --}}
                                     </form>
                                 </td>
                             </tr>
                             @endforeach
-
                         @endif
                 </tbody>
               </table>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\customer;
+use App\Model\htrans;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -19,7 +20,10 @@ class CustomerController extends Controller
             $ctr=$r->paket;
             $data = customer::where('customer.id_paket',$r->paket)
                     ->join('paket_tour','paket_tour.id','=','customer.id_paket')
-                    ->get(array('nama_depan','nama_belakang','customer_email','customer_phone','no_paspor','customer_id'));
+                    ->join('htrans','htrans_customer_id','customer_id')
+                    ->orderBy('htrans_status','asc')
+                    ->distinct()
+                    ->get(array('nama_depan','nama_belakang','customer_email','customer_phone','no_paspor','customer_id','htrans_status'));
 
                     // dd($data);
             Session::put('customer',$data);
