@@ -31,7 +31,7 @@
 								  <form action="/daftarPeserta" method="POST">
 									  @csrf
 									  <div class="row"></div>
-										  <h6>Peserta 1</h6>
+										  {{-- <h6>Peserta 1</h6> --}}
 									  <div class="row">
 										  <div class="col">
 											  <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan" name="namadepan">
