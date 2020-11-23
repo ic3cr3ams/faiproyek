@@ -59,7 +59,7 @@
              <div class="one">
               <h3><a href="#">{{ $tour->nama_paket }}</a></h3>
              </div>
-             <div class="two" style="margin-left: -22px;">
+             <div class="three" style="margin-left: -22px;">
               <span class="price">Rp.{{ number_format($tour->hargajual) }}</span>
              </div>
             </div>
