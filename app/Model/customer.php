@@ -8,7 +8,7 @@ class customer extends Model
 {
     protected $table ='customer';
     protected $primaryKey = 'customer_id';
-    public $incrementing = false;
+    public $incrementing = true;
     protected $keyType = 'varchar';
     public $timestamps = false;
 }

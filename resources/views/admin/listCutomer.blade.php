@@ -33,25 +33,48 @@
                 <thead>
                   <tr>
                     <th>Nama Customer</th>
-                    <th>Paket</th>
-                    <th>Harga Paket</th>
+                    <th>Email Customer</th>
+                    <th>No Paspor</th>
+                    <th>No Telefon</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                        @if (Session::get('customer')=='Tidak Ada Data')
-                            <h1>{{Session::get('customer')}}</h1>
-                        @elseif(!Session::has('customer'))
-                            <h1>Silahkan Pilih Paket</h1>
+                        @if (!Session::get('customer'))
+                            @php
+                                $data = db::table('customer')->get();
+                            @endphp
+                            @foreach ($data as $item=>$value)
+                            <tr>
+                                <td>{{$value->nama_depan.$value->nama_belakang}}</td>
+                                <td>{{$value->customer_email}}</td>
+                                <td>{{$value->no_paspor}}</td>
+                                <td>{{$value->customer_phone}}</td>
+                                <td>
+                                    <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
+                                    <form action="deletecustomer" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{$value->customer_id}}" name="id">
+                                    <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o "></i> Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         @else
                             @foreach (Session::get('customer') as $item =>$value)
                             <tr>
                                 <td>{{$value->nama_depan.$value->nama_belakang}}</td>
-                                <td>{{$value->nama}}</td>
-                                <td>{{$value->hargajual}}</td>
+                                <td>{{$value->customer_email}}</td>
+                                <td>{{$value->no_paspor}}</td>
+                                <td>{{$value->customer_phone}}</td>
                                 <td>
-                                  <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
-                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i> Delete</button>
+                                    <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
+                                    <form action="deletecustomer" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{$value->customer_id}}" name="id">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o "></i>Delete</button>
+                                    {{-- <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o "></i> Delete</button> --}}
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
