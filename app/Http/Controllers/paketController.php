@@ -209,15 +209,34 @@ class paketController extends Controller
         $param["dataTour"] = paket_tour::where('id',$id_paket)->get();
         return view('/order')->with($param);
     }
-    public function adddatatamu(Request $request)
+    public function adddatacustomer(Request $request)
     {
         $nama_depan= $request->namadepan;
         $nama_belakang = $request->namabelakang;
         $email = $request->email;
         $telp = $request->notelp;
         $nopaspor = $request->nopaspor;
-        $id_paket = $request->id_tour;
+        $id_paket = $request->id_paket;
+        $datacustomer = customer::all()->count();
+        
+        if($datacustomer < 10)
+        {
+            $id_customer=($datacustomer+1);
+        }
+        else if($datacustomer >= 10)
+        {
+            $id_customer=($datacustomer+1);
+        }
+        else if($datacustomer >= 100)
+        {
+            $id_customer=($datacustomer+1);
+        }
+        else if($datacustomer >= 1000)
+        {
+            $id_customer=($datacustomer+1);
+        }
         customer::insert([
+            "customer_id"=>$id_customer,
             "nama_depan"=>$nama_depan,
             "nama_belakang"=>$nama_belakang,
             "customer_email"=>$email,
