@@ -170,7 +170,7 @@
 							</thead>
 							<tbody>
 							  <tr>
-								<td>HargaTikket Pesawat</td>
+								<td>Harga Tiket Pesawat</td>
 								<td>Rp</td>
 								<td>{{ number_format($item->harga_flight)}}</td>
 							  </tr>
