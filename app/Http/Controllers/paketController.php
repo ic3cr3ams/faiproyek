@@ -221,20 +221,20 @@ class paketController extends Controller
         
         if($datacustomer < 10)
         {
-            $id_customer=($datacustomer+1);
+            $id_customer="CU000".($datacustomer+1);
 
         }
         else if($datacustomer >= 10)
         {
-            $id_customer=($datacustomer+1);
+            $id_customer="CU00".($datacustomer+1);
         }
         else if($datacustomer >= 100)
         {
-            $id_customer=($datacustomer+1);
+            $id_customer="CU0".($datacustomer+1);
         }
         else if($datacustomer >= 1000)
         {
-            $id_customer=($datacustomer+1);
+            $id_customer="CU".($datacustomer+1);
         }
         customer::insert([
             "customer_id"=>$id_customer,

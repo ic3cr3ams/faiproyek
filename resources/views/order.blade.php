@@ -24,9 +24,9 @@
 					<div>
 						<div class="card">
 						<div class="card-header">
-								  <a class="card-link" data-toggle="collapse"  href="#menu4" aria-expanded="false" aria-controls="menu4">Data Tamu<span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
+								  <a class="card-link" data-toggle="collapse"  href="#menu4" aria-expanded="false" aria-controls="menu4">Data Tamu</a>
 						</div>
-						<div id="menu4" class="collapse">
+						<div id="menu4" >
 						  <div class="card-body">
 								  <form action="/daftarPeserta" method="POST">
 									  @csrf
