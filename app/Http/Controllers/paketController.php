@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\countries;
+use App\Model\customer;
 use App\Model\dhotel;
 use App\Model\dpaket;
 use App\Model\flight;
@@ -204,13 +205,26 @@ class paketController extends Controller
     }
     public function booking(Request $request)
     {
+        $id_paket = $request->id_tour;
+        $param["dataTour"] = paket_tour::where('id',$id_paket)->get();
+        return view('/order')->with($param);
+    }
+    public function adddatatamu(Request $request)
+    {
         $nama_depan= $request->namadepan;
         $nama_belakang = $request->namabelakang;
         $email = $request->email;
         $telp = $request->notelp;
         $nopaspor = $request->nopaspor;
         $id_paket = $request->id_tour;
-        $param["dataTour"] = paket_tour::where('id',$id_paket)->get();
-        return view('/order')->with($param);
+        customer::insert([
+            "nama_depan"=>$nama_depan,
+            "nama_belakang"=>$nama_belakang,
+            "customer_email"=>$email,
+            "customer_phone"=>$telp,
+            "no_paspor"=>$nopaspor,
+            "id_paket"=>$id_paket
+        ]);
+        return view('/order');
     }
 }

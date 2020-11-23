@@ -125,12 +125,16 @@
 							  <br/>
 							  <div class="row">
 								<div class="col">
+									@foreach ($dataTour as $item)
+										<input type="hidden" value="{{ $item->id}}" name="id_paket">
+									@endforeach
 									<button type="submit" class="ml-auto btn btn-success" >Save</button>
 								</div>
 								<div class="col">
 									<a href="paket"><button type="button" class="ml-auto btn btn-danger" >Cancel</button></a>
 								</div>
 							</div>
+
 							</form>
 						  </div>
 						</div>
@@ -168,19 +172,19 @@
 							</thead>
 							<tbody>
 							  <tr>
-								<td>Airport Tax & Fuel</td>
+								<td>HargaTikket Pesawat</td>
 								<td>Rp</td>
 								<td>{{ number_format($item->harga_flight)}}</td>
 							  </tr>
 							  <tr>
-								<td>Singgle Supplement</td>
+								<td>Harga Hotel</td>
 								<td>Rp</td>
 								<td>{{ number_format($item->harga_hotel)}}</td>
 							  </tr>
 							  <tr>
-								<td>Travel Asurance</td>
+								<td>Biaya Lain - lain</td>
 								<td>Rp</td>
-								<td>{{ number_format($item->harga_hotel)}}</td>
+								<td>{{ number_format($item->biayalain)}}</td>
 							  </tr>
 							</tbody>					
 							@endforeach
