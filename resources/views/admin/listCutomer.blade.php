@@ -68,7 +68,6 @@
                                 <td>{{$value->no_paspor}}</td>
                                 <td>{{$value->customer_phone}}</td>
                                 <td>
-                                    <button class="btn btn-warning btn-xs"><a href="detailCustomer">Lihat detail</a></button>
                                     <form action="deletecustomer" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{$value->customer_id}}" name="id">
