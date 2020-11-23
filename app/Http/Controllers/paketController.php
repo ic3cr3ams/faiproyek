@@ -222,6 +222,7 @@ class paketController extends Controller
         if($datacustomer < 10)
         {
             $id_customer=($datacustomer+1);
+
         }
         else if($datacustomer >= 10)
         {
@@ -244,6 +245,7 @@ class paketController extends Controller
             "no_paspor"=>$nopaspor,
             "id_paket"=>$id_paket
         ]);
-        return view('/order');
+        $param["dataTour"] = paket_tour::where('id',$id_paket)->get();
+        return view('/order')->with($param);
     }
 }

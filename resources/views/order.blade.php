@@ -53,7 +53,7 @@
 										  </div>
 									  </div>
 									  <br/>
-									  <div class="row"></div>
+									  {{-- <div class="row"></div>
 										  <h6>Peserta 2</h6>
 									  <div class="row">
 										  <div class="col">
@@ -120,7 +120,7 @@
 								  <div class="col">
 									<input type="text" class="form-control" id="nopaspor" placeholder="No.Paspor" name="nopaspor">
 								  </div>
-							  </div>
+							  </div> --}}
 							  <br/>
 							  <div class="row">
 								<div class="col">
