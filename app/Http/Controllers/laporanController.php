@@ -23,9 +23,15 @@ class laporanController extends Controller
         $akhir = $r->akhir;
         // ->select(array(DB::raw('COUNT(htrans_customer_id) as jumlah')))
         // ->groupBy('htrans_customer_id')
-        $data =DB::table('htrans')->whereBetween('htrans.htrans_date',[$awal,$akhir])->select(array('htrans_customer_id',DB::raw('COUNT(htrans_customer_id) as jumlah')))->join('dtrans','dtrans_id','=','htrans_id_order')->join('hotel','dtrans_hotel','=','hotel.id')->join('paket_tour','paket_tour.id','=',"dtrans_tour")->groupBy('htrans_customer_id')->get(array('htrans_date','htrans_id_order','nama_paket','hargajual'));
-        $ctr =DB::table('htrans')->whereBetween('htrans.htrans_date',[$awal,$akhir])->distinct()->count();
-        dd($ctr);
+        $data =DB::table('htrans')->whereBetween('htrans.htrans_date',[$awal,$akhir])->where('htrans_status','2')
+                ->join('dtrans','dtrans_id','htrans_id_order')->join('hotel','dtrans_hotel','hotel.id')
+                ->join('paket_tour','paket_tour.id',"dtrans_tour")->join('flight','flight.id','paket_tour.flight')
+                ->join('customer','customer_id','htrans_customer_id')->get();
+        $ctr =DB::table('htrans')->whereBetween('htrans.htrans_date',[$awal,$akhir])->where('htrans_status','2')
+        ->join('dtrans','dtrans_id','htrans_id_order')->join('hotel','dtrans_hotel','hotel.id')
+        ->join('paket_tour','paket_tour.id',"dtrans_tour")->join('flight','flight.id','paket_tour.flight')
+        ->join('customer','customer_id','htrans_customer_id')->count();
+        // dd($data);
         Session::put('jmlhlaporan',$ctr);
         if ($ctr>0) {
             Session::put('laporan',$data);

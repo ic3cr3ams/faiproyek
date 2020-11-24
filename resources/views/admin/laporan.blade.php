@@ -34,7 +34,7 @@
                   <br>
                 <div class="row">
                     @if (Session::has('jmlhlaporan'))
-                <h5 style="margin-left:700px">Jumlah Peserta : {{Session::get('jmlhlaporan')}}</h5>
+                <h5 style="margin-left:689px">Jumlah Peserta : {{Session::get('jmlhlaporan')}}</h5>
                     @endif
                 <table class="table">
                   <thead>
@@ -42,46 +42,31 @@
                       <th>Tanggal</th>
                       <th>Nama Peserta</th>
                       <th>Nama Paket</th>
-                      <th style="width:140px" class="text-right">Harga Paket</th>
-                      <th style="width:90px" class="text-right">Total</th>
+                      <th class="text-right">Harga Paket</th>
+                      <th class="text-right">Harga Hotel</th>
+                      <th class="text-right">Harga Pesawat</th>
+                      <th class="text-right">Total</th>
                     </tr>
                   </thead>
                   <tbody>
                       @if (!Session::has('laporan'))
                         <h1>Silahkan Pilih Periode Terlebih Dahulu</h1>
                       @else
-                        @foreach (Session::get('laporan') as $item)
+                        @foreach (Session::get('laporan') as $item => $value)
                             <tr>
-                                <td></td>
+                                <td>{{$value->htrans_date}}</td>
+                                <td>{{$value->nama_depan.$value->nama_belakang}}</td>
+                                <td>{{$value->nama_paket}}</td>
+                                <td>Rp. {{number_format($value->hargajual)}}</td>
+                                <td>Rp. {{number_format($value->harga_hotel)}}</td>
+                                <td>Rp. {{number_format($value->harga_flight)}}</td>
+                                @php
+                                 $total = $value->hargajual+$value->harga_hotel+$value->harga_flight;
+                                @endphp
+                                <td>Rp. {{number_format($total)}}</td>
                             </tr>
                         @endforeach
                       @endif
-                      {{-- @foreach ($collection as $item)
-                      <tr>
-                        <td>1</td>
-                        <td>Flat Pack Heritage</td>
-                        <td>Maria</td>
-                        <td>Paket Tour</td>
-                        <td class="text-right">$429.00</td>
-                        <td class="text-right">$429.00</td>
-                      </tr>
-                      @endforeach --}}
-                    {{-- <tr>
-                      <td>1</td>
-                      <td>Flat Pack Heritage</td>
-                      <td>Maria</td>
-                      <td>Paket Tour</td>
-                      <td class="text-right">$429.00</td>
-                      <td class="text-right">$429.00</td>
-                    </tr>
-                    <tr style="background-color: gray;color:black;">
-                        <td>Total </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td>$12345</td>
-                    </tr> --}}
                   </tbody>
                 </table>
                 <br>

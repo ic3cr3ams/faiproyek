@@ -23,8 +23,11 @@ Route::get('logout','mctrl@logout');
 
 Route::get('/paket','paketController@listTour');
 Route::post('/detailpaket', 'detailCustController@lihatdetail');
-
-
+Route::post('upload','CheckoutCtrl@upload');
+Route::get('checkout',function(){
+    // dd('asd');
+    return view('checout');
+})->name('cout');
 //ABOUT AND CONTACT
 Route::get('/about', function () {
     return view('about');
@@ -49,7 +52,6 @@ Route::get('/blog-single3', function () {
 Route::get('/blog-single4', function () {
     return view('blog-single4');
 });
-
 
 //Login dan Register
 Route::get('/login', function () {
@@ -79,17 +81,12 @@ Route::get('logout','mctrl@logout');
 // Route::get('/paket', function () {
 //     return view('paket');
 // });
-Route::get('/detailpaket', function () {
-    return view('detailpaket');
-});
-Route::get('/order', function () {
-    return view('order');
-});
+// Route::get('/detailpaket', function () {
+//     return view('detailpaket');
+// });
 Route::post('/daftarPeserta', 'paketController@adddatacustomer');
-Route::post('/order', 'paketController@booking');
-Route::get('/checout', function () {
-    return view('checout');
-});
+Route::post('order', 'paketController@booking');
+Route::post('/checout', 'CheckoutCtrl@pindah');
 Route::get('/cekPesan', function () {
     return view('cekPesan');
 });

@@ -41,7 +41,6 @@
                             @endforeach
                             @php
                                 $itenary = DB::table('itenerarypaket')->where('idpaket',Session::get('idtour'))->get(array('hari','itenerary'));
-
                             @endphp
                             <div class="container">
                                 <h1 style="text-align: center;">Itenary Paket</h1>
@@ -84,15 +83,20 @@
                             <tbody>
                                 <tr>
                                     <td><b>Biaya Tour (Orang Dewasa)</b></td>
-                                    <td style="text-align: center">USD 2.575,-</td>
+                                    @php
+                                        $harga = DB::table('paket_tour')->where('id',Session::get('idtour'))->get('hargajual');
+                                    @endphp
+                                    @foreach ($harga as $item=>$value)
+                                    <td style="text-align: center">Rp. {{number_format($value->hargajual)}}</td>
+                                    @endforeach
                                 </tr>
                                 <tr>
                                     <td><b>Single Supplement</b></td>
-                                    <td style="text-align: center">USD 250,-</td>
+                                    <td style="text-align: center">Rp. 250.000-</td>
                                 </tr>
                                 <tr>
                                     <td><b>Asuransi Perjalanan</b></td>
-                                    <td style="text-align: center">USD 50,-</td>
+                                    <td style="text-align: center">Rp. 50.000-</td>
                                 </tr>
                             </tbody>
                       </table>
@@ -183,10 +187,11 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         {{-- <a href="order"> --}}
-                        <form action="/order" method="POST">
-                          @csrf 
-                          <input type="hidden" name="id_tour" value="{{Session::get('idtour')}}">  
-                          <input type="submit" value="Book Now" class="btn btn-primary py-3" style="width:100px;">
+                        <form action="order" method="POST">
+                          @csrf
+                          <input type="hidden" name="id_tour" value="{{Session::get('idtour')}}">
+                        <input type="hidden" name="login" value="{{Session::get('login')}}">
+                          <button type="submit"  class="btn btn-primary py-3" style="width:100px;">Book Now</button>
                         </form>
                         {{-- </a> --}}
                     </div>
