@@ -32,7 +32,7 @@
                         <script>
                             function myFunction() {
                                 var id = $('#atm').children(":selected").attr("id");
-                                Session["atm"]=id;
+                                document.cookie = "atm = "+id;
                                 if(id === 'bca'){
                                     document.getElementById('virtuabri').style.display='none';
                                     document.getElementById('virtualbca').style.display='block';
@@ -188,4 +188,6 @@
           </div>
       </div>
     </section> <!-- .section -->
+    <script>
+    </script>
     @endsection

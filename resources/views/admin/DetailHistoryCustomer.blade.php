@@ -71,9 +71,9 @@
                             <td style="background-color:green">Done</td>
                         @endif
                         <div id="myDIV" style="display: none">
-                            <img src="{{ asset('storage/a.png')}}" alt="" srcset="">
-                            </div>
-                            <script>
+                            <img src="{{ asset("storage/BuktiTransfer/{$value->foto}")}}" alt="" srcset="">
+                        </div>
+                        <script>
                             function myFunction() {
                               var x = document.getElementById("myDIV");
                               if (x.style.display === "none") {
