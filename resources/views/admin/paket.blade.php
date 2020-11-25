@@ -33,7 +33,7 @@
                                             @endforeach    
                                         </td>
                                         <td>{{$value->deskripsi}}</td>                                       
-                                        <td><img src={{asset('/storage/paketPicture/'.$value->gambar)}} alt="eaa" width="150" height="100" class="img-thumbnail"></td>
+                                        <td><img src={{asset('paketPicture/'.$value->gambar)}} alt="eaa" width="150" height="100" class="img-thumbnail"></td>
                                         <td>Rp. {{number_format($value->hargajual)}}</td>
                                         <td>
                                             {{-- <a href="/admin/editPaket/{{$value->id}}"><button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit </button></a> --}}

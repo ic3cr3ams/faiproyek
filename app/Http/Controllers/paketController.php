@@ -29,7 +29,7 @@ class paketController extends Controller
         $fileName=$file->getClientOriginalName();
         $namapaketfile=str_replace(' ', '', $request->nama);
         // dd($namapaketfile);
-        $file->storeAs($tujuanfile,"paket".$namapaketfile.".".$file->getClientOriginalExtension(),"public");
+        $file->move($tujuanfile,"paket".$namapaketfile.".".$file->getClientOriginalExtension());
         // $file->move($tujuanfile,"paket$request->nama.".$file->getClientOriginalExtension());
         $totalbiaya=intval($request->hargaflight)+intval($request->hargahotel*$request->durasi)+intval($request->biayalain);
         $hargajual=$totalbiaya+($totalbiaya/100*$request->keuntungan);

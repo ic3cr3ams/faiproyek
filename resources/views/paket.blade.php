@@ -52,7 +52,7 @@
             <div class="col-md-5 ftco-animate">
           <div class="destination">
               <input type="hidden" value="">
-           <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image:={{asset('/storage/paketPicture/'.$tour->gambar)}};">
+           <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image:={{asset('paketPicture/'.$tour->gambar)}};">
            </a>
            <div class="text p-3">
             <div class="d-flex">

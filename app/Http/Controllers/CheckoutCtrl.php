@@ -22,7 +22,7 @@ class CheckoutCtrl extends Controller
             'foto.mimes' => 'Format foto hanya JPG,PNG,JPEG'
         ]);
         $namaAsli1 = $r->file('foto')->getClientOriginalName();
-        $path1 = $r->file('foto')->storeAs('BuktiTransfer', "$namaAsli1", 'public');
+        $path1 = $r->file('foto')->move('BuktiTransfer', "$namaAsli1");
         $idhtrans =Session::get('idhtrans');
         $h = htrans::find($idhtrans);
         $atm =$_COOKIE['atm'];
