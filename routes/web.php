@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('balik','CheckoutCtrl@home');
 Route::get('logout','mctrl@logout');
 
 Route::get('/paket','paketController@listTour');
@@ -35,7 +35,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
+Route::get('jadwal',function(){
+    return view('itenenarypilihan');
+})->name('jadwal');
 //BLOG
 Route::get('/blog', function () {
     return view('blog');

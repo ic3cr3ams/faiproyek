@@ -30,6 +30,9 @@ class CheckoutCtrl extends Controller
         $h ->foto=$namaAsli1;
         $h ->htrans_status=1;
         $h->save();
+        return redirect()->route('jadwal');
+    }
+    public function home(){
         return redirect()->route('homepage');
     }
 }
