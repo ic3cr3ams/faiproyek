@@ -201,7 +201,7 @@ class paketController extends Controller
         //return view('/paket',["dataTour"=>$dataTour]);
         $param["dataTour"] = DB::table('paket_tour as pt')
         ->join('countries as ct','pt.negara_tujuan','=','ct.id')
-        ->select('pt.id','pt.nama_paket','pt.durasi','pt.negara_tujuan','pt.gambar','pt.hargajual','ct.name')
+        ->select('pt.id','pt.nama_paket','pt.durasi','pt.negara_tujuan','pt.gambar','pt.hargajual','ct.name','ct.capital')
         ->get();
         //return view('/paket',["dataTour"=>$dataTour]);
         return view('/paket')->with($param);

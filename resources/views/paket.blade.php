@@ -52,7 +52,7 @@
             <div class="col-md-5 ftco-animate">
           <div class="destination">
               <input type="hidden" value="">
-           <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image:={{asset('paketPicture/'.$tour->gambar)}};">
+           <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image:url('{{asset('paketPicture/'.$tour->gambar)}}');">
             {{-- <img class="img img-2 d-flex justify-content-center align-items-center" src="{{asset('paketPicture/'.$tour->gambar)}}"> --}}
            </a>
            <div class="text p-3">
@@ -70,7 +70,7 @@
             <form action="detailpaket" method="post">
                 @csrf
             <p class="bottom-area d-flex">
-                <span><i class="icon-map-o"></i> {{ $tour->name}}</span>
+                <span><i class="icon-map-o"></i> {{ $tour->name }}, {{ $tour->capital }}</span>
                 <input type="hidden" value="{{$tour->id}}" name="id" >
                 <button type="submit" class="ml-auto btn btn-success" >Discover</button>
                 {{-- <span id="{{ $tour->id }}"><a href="detailpaket">Discover</a></span> --}}
