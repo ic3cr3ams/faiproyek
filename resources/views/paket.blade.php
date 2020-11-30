@@ -53,7 +53,6 @@
           <div class="destination">
               <input type="hidden" value="">
            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image:url('{{asset('paketPicture/'.$tour->gambar)}}');">
-            {{-- <img class="img img-2 d-flex justify-content-center align-items-center" src="{{asset('paketPicture/'.$tour->gambar)}}"> --}}
            </a>
            <div class="text p-3">
             <div class="d-flex">
